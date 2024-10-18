@@ -121,15 +121,15 @@ resultats_course['position_pilote_1'] = resultats_course[f'points_cumules_{point
 # Calculer la position du pilote en utilisant les points cumulés pour le deuxième système
 resultats_course['position_pilote_2'] = resultats_course[f'points_cumules_{points_choisis_2}_meilleur_tour' if utiliser_bonus_2 else f'points_cumules_{points_choisis_2}'].rank(ascending=False, method='min')
 
+# Ajouter un bouton pour choisir l'affichage des positions et des points
+display_race_or_year = st.selectbox("Résultats saison ou course", options=[True, False], format_func=lambda x: "Saison" if x else "Course", index=0)
+
 # Créer les DataFrames pour l'affichage
-classement_df_1 = resultats_course[colonnes_affichage_1].sort_values(by=[col for col in colonnes_affichage_1 if col.startswith('points_cumules_')][0], ascending=False)
+classement_df_1 = resultats_course[colonnes_affichage_1]
 classement_df_1 = classement_df_1.rename(columns=noms_colonnes_1)
 
-classement_df_2 = resultats_course[colonnes_affichage_2].sort_values(by=[col for col in colonnes_affichage_2 if col.startswith('points_cumules_')][0], ascending=False)
+classement_df_2 = resultats_course[colonnes_affichage_2]
 classement_df_2 = classement_df_2.rename(columns=noms_colonnes_2)
-
-# Ajouter un bouton pour choisir l'affichage des positions et des points
-display_race_or_year = st.selectbox("Résultats saison ou saison", options=[True, False], format_func=lambda x: "Saison" if x else "Course", index=0)
 
 # Afficher les tableaux côte à côte
 col1, col2 = st.columns(2)
@@ -137,13 +137,17 @@ col1, col2 = st.columns(2)
 with col1:
     st.subheader(f"Classement avec {points_choisis_1}")
     if display_race_or_year:
-        st.dataframe(classement_df_1[['Pilote', 'Position saison', 'Points saison']], use_container_width=True, hide_index=True)
+        classement_df_1_sorted = classement_df_1[['Pilote', 'Position saison', 'Points saison']].sort_values(by='Points saison', ascending=False)
+        st.dataframe(classement_df_1_sorted, use_container_width=True, hide_index=True)
     else:
-        st.dataframe(classement_df_1[['Pilote', 'Position course', 'Points course']].rename(columns=noms_colonnes_1), use_container_width=True, hide_index=True)
+        classement_df_1_sorted = classement_df_1[['Pilote', 'Position course', 'Points course']].rename(columns=noms_colonnes_1).sort_values(by='Points course', ascending=False)
+        st.dataframe(classement_df_1_sorted, use_container_width=True, hide_index=True)
 
 with col2:
     st.subheader(f"Classement avec {points_choisis_2}")
     if display_race_or_year:
-        st.dataframe(classement_df_2[['Pilote', 'Position saison', 'Points saison']], use_container_width=True, hide_index=True)
+        classement_df_2_sorted = classement_df_2[['Pilote', 'Position saison', 'Points saison']].sort_values(by='Points saison', ascending=False)
+        st.dataframe(classement_df_2_sorted, use_container_width=True, hide_index=True)
     else:
-        st.dataframe(classement_df_2[['Pilote', 'Position course', 'Points course']].rename(columns=noms_colonnes_1), use_container_width=True, hide_index=True)
+        classement_df_2_sorted = classement_df_2[['Pilote', 'Position course', 'Points course']].rename(columns=noms_colonnes_1).sort_values(by='Points course', ascending=False)
+        st.dataframe(classement_df_2_sorted, use_container_width=True, hide_index=True)
