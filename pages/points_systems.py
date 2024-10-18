@@ -57,49 +57,93 @@ resultats_course = races_results[
     (races_results['year'] == annee_selectionnee)
 ]
 
-# Trier les résultats par position
-resultats_tries = resultats_course.sort_values('positionText')
-
 # Afficher le classement des pilotes
 st.subheader(f"Classement des pilotes pour {selected_gp} {annee_selectionnee}")
 
-# Permettre à l'utilisateur de choisir le système de points
-systemes_points = [col.split('_', 1)[1] for col in resultats_tries.columns if col.startswith('points_') and not col.startswith('points_cumules_') and not col.endswith('_meilleur_tour')]
-points_choisis = st.selectbox("Choisissez le système de points", systemes_points)
+# Permettre à l'utilisateur de choisir deux systèmes de points pour comparaison
+col1, col2 = st.columns(2)
+systemes_points = [col.split('_', 1)[1] for col in resultats_course.columns if col.startswith('points_') and not col.startswith('points_cumules_') and not col.endswith('_meilleur_tour')]
+with col1:
+    points_choisis_1 = st.selectbox("Choisissez le premier système de points", systemes_points, key='points_choisis_1')
+with col2:
+    points_choisis_2 = st.selectbox("Choisissez le deuxième système de points", systemes_points, key='points_choisis_2')
 
 # Permettre à l'utilisateur de choisir d'inclure le point bonus
-utiliser_bonus = st.checkbox("Inclure le point bonus pour le meilleur tour", value=True)
+with col1:
+    utiliser_bonus_1 = st.checkbox("Inclure le point bonus pour le meilleur tour", value=True, key='utiliser_bonus_1')
+with col2:
+    utiliser_bonus_2 = st.checkbox("Inclure le point bonus pour le meilleur tour", value=True, key='utiliser_bonus_2')
 
-# Définir les colonnes d'affichage et les noms de colonnes
-if utiliser_bonus:
-    colonnes_affichage = ['driverId', 'positionText', f'points_{points_choisis}', f'points_cumules_{points_choisis}_meilleur_tour']
-    noms_colonnes = {
+
+# Définir les colonnes d'affichage et les noms de colonnes pour le premier système
+if utiliser_bonus_1:
+    colonnes_affichage_1 = ['driverId', 'positionText', f'points_{points_choisis_1}', f'points_cumules_{points_choisis_1}_meilleur_tour', 'position_pilote_1']
+    noms_colonnes_1 = {
         'driverId': 'Pilote',
-        'positionText': 'Position',
-        f'points_{points_choisis}': 'Points',
-        f'points_cumules_{points_choisis}_meilleur_tour': 'Points cumulés avec bonus'
+        'positionText': 'Position course',
+        f'points_{points_choisis_1}': 'Points course',
+        f'points_cumules_{points_choisis_1}_meilleur_tour': 'Points saison',
+        'position_pilote_1': 'Position saison'
     }
 else:
-    colonnes_affichage = ['driverId', 'positionText', f'points_{points_choisis}', f'points_cumules_{points_choisis}']
-    noms_colonnes = {
+    colonnes_affichage_1 = ['driverId', 'positionText', f'points_{points_choisis_1}', f'points_cumules_{points_choisis_1}', 'position_pilote_1']
+    noms_colonnes_1 = {
         'driverId': 'Pilote',
-        'positionText': 'Position',
-        f'points_{points_choisis}': 'Points',
-        f'points_cumules_{points_choisis}': 'Points cumulés'
+        'positionText': 'Position course',
+        f'points_{points_choisis_1}': 'Points course',
+        f'points_cumules_{points_choisis_1}': 'Points saison',
+        'position_pilote_1': 'Position saison'
     }
 
-# Vérifier si le système de points choisi est disponible
-if f'points_{points_choisis}' not in resultats_tries.columns or (utiliser_bonus and f'points_cumules_{points_choisis}_meilleur_tour' not in resultats_tries.columns):
-    colonnes_affichage = ['driverId', 'positionText']
-    noms_colonnes = {
+# Définir les colonnes d'affichage et les noms de colonnes pour le deuxième système
+if utiliser_bonus_2:
+    colonnes_affichage_2 = ['driverId', 'positionText', f'points_{points_choisis_2}', f'points_cumules_{points_choisis_2}_meilleur_tour', 'position_pilote_2']
+    noms_colonnes_2 = {
         'driverId': 'Pilote',
-        'positionText': 'Position'
+        'positionText': 'Position course',
+        f'points_{points_choisis_2}': 'Points course',
+        f'points_cumules_{points_choisis_2}_meilleur_tour': 'Points saison',
+        'position_pilote_2': 'Position saison'
     }
-    st.warning(f"Les points pour le système {points_choisis} ne sont pas disponibles pour cette course.")
+else:
+    colonnes_affichage_2 = ['driverId', 'positionText', f'points_{points_choisis_2}', f'points_cumules_{points_choisis_2}', 'position_pilote_2']
+    noms_colonnes_2 = {
+        'driverId': 'Pilote',
+        'positionText': 'Position course',
+        f'points_{points_choisis_2}': 'Points course',
+        f'points_cumules_{points_choisis_2}': 'Points saison',
+        'position_pilote_2': 'Position saison'
+    }
 
-# Créer un DataFrame pour l'affichage
-classement_df = resultats_tries[colonnes_affichage].sort_values(by=[col for col in colonnes_affichage if col.startswith('points_cumules_')][0], ascending=False)
-classement_df = classement_df.rename(columns=noms_colonnes)
+# Calculer la position du pilote en utilisant les points cumulés pour le premier système
+resultats_course['position_pilote_1'] = resultats_course[f'points_cumules_{points_choisis_1}_meilleur_tour' if utiliser_bonus_1 else f'points_cumules_{points_choisis_1}'].rank(ascending=False, method='min')
 
-# Afficher le tableau
-st.dataframe(classement_df, use_container_width=True)
+# Calculer la position du pilote en utilisant les points cumulés pour le deuxième système
+resultats_course['position_pilote_2'] = resultats_course[f'points_cumules_{points_choisis_2}_meilleur_tour' if utiliser_bonus_2 else f'points_cumules_{points_choisis_2}'].rank(ascending=False, method='min')
+
+# Créer les DataFrames pour l'affichage
+classement_df_1 = resultats_course[colonnes_affichage_1].sort_values(by=[col for col in colonnes_affichage_1 if col.startswith('points_cumules_')][0], ascending=False)
+classement_df_1 = classement_df_1.rename(columns=noms_colonnes_1)
+
+classement_df_2 = resultats_course[colonnes_affichage_2].sort_values(by=[col for col in colonnes_affichage_2 if col.startswith('points_cumules_')][0], ascending=False)
+classement_df_2 = classement_df_2.rename(columns=noms_colonnes_2)
+
+# Ajouter un bouton pour choisir l'affichage des positions et des points
+display_race_or_year = st.selectbox("Résultats saison ou saison", options=[True, False], format_func=lambda x: "Saison" if x else "Course", index=0)
+
+# Afficher les tableaux côte à côte
+col1, col2 = st.columns(2)
+
+with col1:
+    st.subheader(f"Classement avec {points_choisis_1}")
+    if display_race_or_year:
+        st.dataframe(classement_df_1[['Pilote', 'Position saison', 'Points saison']], use_container_width=True, hide_index=True)
+    else:
+        st.dataframe(classement_df_1[['Pilote', 'Position course', 'Points course']].rename(columns=noms_colonnes_1), use_container_width=True, hide_index=True)
+
+with col2:
+    st.subheader(f"Classement avec {points_choisis_2}")
+    if display_race_or_year:
+        st.dataframe(classement_df_2[['Pilote', 'Position saison', 'Points saison']], use_container_width=True, hide_index=True)
+    else:
+        st.dataframe(classement_df_2[['Pilote', 'Position course', 'Points course']].rename(columns=noms_colonnes_1), use_container_width=True, hide_index=True)
