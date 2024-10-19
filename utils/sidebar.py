@@ -1,13 +1,7 @@
 import streamlit as st
 from utils.func import get_session_state_data
 
-def sidebar_filters(races, grands_prix, circuits):
-    # selected_gp = st.session_state.get('selected_gp')
-    # annee_selectionnee = st.session_state.get('annee_selectionnee')
-    # gp_races = st.session_state.get('gp_races')
-    # gp_details = st.session_state.get('gp_details')
-    # circuit_id = st.session_state.get('circuit_id')
-    # circuit_details = st.session_state.get('circuit_details')
+def sidebar_filters(races, grands_prix, circuits, driver_standings):
     # Sélecteur pour choisir une année spécifique
     annees_disponibles = sorted(races['year'].unique(), reverse=True)
     annee_selectionnee = st.sidebar.selectbox("Choisissez une année", annees_disponibles, index=st.session_state.get('annee_selectionnee_index', 0))
@@ -26,6 +20,9 @@ def sidebar_filters(races, grands_prix, circuits):
     selected_gp_name_round = st.sidebar.selectbox("Choisissez un Grand Prix pour plus de détails", grands_prix_concat['name_round'])
     selected_gp = grands_prix_concat[grands_prix_concat['name_round'] == selected_gp_name_round]['name'].values[0]
 
+    # Filtrer les pilotes pour l'année sélectionnée
+    pilotes_annee = driver_standings[driver_standings['year'] == annee_selectionnee]['driverId'].unique()
+
     # Afficher les détails du Grand Prix sélectionné
     gp_details = grands_prix[grands_prix['name'] == selected_gp].iloc[0]
     gp_races = races[(races['grandPrixId'] == gp_details['id']) & (races['year'] == annee_selectionnee)]
@@ -40,3 +37,4 @@ def sidebar_filters(races, grands_prix, circuits):
         st.session_state['gp_races'] = gp_races
         st.session_state['circuit_id'] = circuit_id
         st.session_state['circuit_details'] = circuit_details
+        st.session_state['pilotes_annee'] = pilotes_annee

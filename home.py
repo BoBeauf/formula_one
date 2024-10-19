@@ -24,14 +24,16 @@ st.session_state['races'] = races
 st.session_state['races_results'] = races_results
 st.session_state['points_systems'] = points_systems
 st.session_state['circuits'] = circuits
+st.session_state['driver_standings'] = driver_standings
 
-sidebar_filters(races, grands_prix, circuits)
+sidebar_filters(races, grands_prix, circuits, driver_standings)
 selected_gp = st.session_state.get('selected_gp')
 annee_selectionnee = st.session_state.get('annee_selectionnee')
 gp_races = st.session_state.get('gp_races')
 gp_details = st.session_state.get('gp_details')
 circuit_id = st.session_state.get('circuit_id')
 circuit_details = st.session_state.get('circuit_details')
+pilotes_annee = st.session_state.get('pilotes_annee')
 
 st.markdown("---")
 st.markdown("### 🏁 Détails du Grand Prix")

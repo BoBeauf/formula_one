@@ -7,13 +7,8 @@ from utils.func import get_session_state_data
 # Configuration de la page
 st.set_page_config(page_title="Analyse des Grands Prix de F1", layout="wide")
 
-# # @st.cache_data
-# def get_session_state_data(keys):
-#     """Récupère les données de st.session_state pour les clés spécifiées et les met en cache."""
-#     return {key: st.session_state.get(key) for key in keys}
-
 @st.cache_data
-def calculer_scores(resultats_course: pd.DataFrame, points_systems: pd.DataFrame) -> pd.DataFrame:
+def calculer_scores(resultats_course: pd.DataFrame, points_systems: pd.DataFrame, drivers: pd.DataFrame) -> pd.DataFrame:
     """Calcule les scores des pilotes selon différents systèmes de points."""
     systemes = points_systems.columns[1:]  # Ignorer la colonne 'position'
 
@@ -69,12 +64,14 @@ def afficher_classement(resultats_course, points_choisis, utiliser_bonus, col):
     col.dataframe(classement_df_sorted, use_container_width=True, hide_index=True)
 
 # Récupérer les DataFrames depuis st.session_state
-session_data = get_session_state_data(['grands_prix', 'races', 'circuits', 'races_results', 'points_systems', 'selected_gp', 'annee_selectionnee', 'gp_details', 'gp_races', 'circuit_id', 'circuit_details'])
+session_data = get_session_state_data(['grands_prix', 'races', 'circuits', 'races_results', 'points_systems', 'selected_gp', 'annee_selectionnee', 'gp_details', 'gp_races', 'circuit_id', 'circuit_details', 'driver_standings', 'pilotes_annee'])
 
-sidebar_filters(session_data['races'], session_data['grands_prix'], session_data['circuits'])
+sidebar_filters(session_data['races'], session_data['grands_prix'], session_data['circuits'], session_data['driver_standings'])
+
+session_data = get_session_state_data(['grands_prix', 'races', 'circuits', 'races_results', 'points_systems', 'selected_gp', 'annee_selectionnee', 'gp_details', 'gp_races', 'circuit_id', 'circuit_details', 'driver_standings', 'pilotes_annee'])
 
 # Appliquer la fonction aux résultats de course
-st.session_state['races_results'] = calculer_scores(session_data['races_results'], session_data['points_systems'])
+st.session_state['races_results'] = calculer_scores(session_data['races_results'], session_data['points_systems'], session_data['pilotes_annee'])
 
 # Obtenir les résultats pour la course sélectionnée
 course_selectionnee = session_data['gp_races'][session_data['gp_races']['year'] == session_data['annee_selectionnee']].iloc[0] if session_data['gp_races'] is not None else None
