@@ -14,9 +14,10 @@ def load_data() -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]
     points_systems = pd.read_csv('f1db-csv/points_systems.csv')
     circuits = pd.read_csv('f1db-csv/f1db-circuits.csv')
     driver_standings = pd.read_csv('f1db-csv/f1db-seasons-driver-standings.csv')
-    return grands_prix, races, races_results, points_systems, circuits, driver_standings
+    seasons_entrants_driver = pd.read_csv('f1db-csv/f1db-seasons-entrants-drivers.csv')
+    return grands_prix, races, races_results, points_systems, circuits, driver_standings, seasons_entrants_driver
 
-grands_prix, races, races_results, points_systems, circuits, driver_standings = load_data()
+grands_prix, races, races_results, points_systems, circuits, driver_standings, seasons_entrants_driver = load_data()
 
 # Stocker les DataFrames dans st.session_state
 st.session_state['grands_prix'] = grands_prix
@@ -25,6 +26,7 @@ st.session_state['races_results'] = races_results
 st.session_state['points_systems'] = points_systems
 st.session_state['circuits'] = circuits
 st.session_state['driver_standings'] = driver_standings
+st.session_state['seasons_entrants_driver'] = seasons_entrants_driver
 
 sidebar_filters(races, grands_prix, circuits, driver_standings)
 selected_gp = st.session_state.get('selected_gp')
