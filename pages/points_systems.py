@@ -63,12 +63,34 @@ def afficher_classement(resultats_course, points_choisis, utiliser_bonus, col):
         classement_df_sorted = classement_df[['Pilote', 'Position course', 'Points course']].sort_values(by='Points course', ascending=False)
     col.dataframe(classement_df_sorted, use_container_width=True, hide_index=True)
 
+
 # Récupérer les DataFrames depuis st.session_state
 session_data = get_session_state_data(['grands_prix', 'races', 'circuits', 'races_results', 'points_systems', 'selected_gp', 'annee_selectionnee', 'gp_details', 'gp_races', 'circuit_id', 'circuit_details', 'driver_standings', 'pilotes_annee'])
 
 sidebar_filters(session_data['races'], session_data['grands_prix'], session_data['circuits'], session_data['driver_standings'])
 
 session_data = get_session_state_data(['grands_prix', 'races', 'circuits', 'races_results', 'points_systems', 'selected_gp', 'annee_selectionnee', 'gp_details', 'gp_races', 'circuit_id', 'circuit_details', 'driver_standings', 'pilotes_annee'])
+
+if not session_data['selected_gp'] or not session_data['annee_selectionnee']:
+    st.info("🚦 Veuillez sélectionner un Grand Prix pour afficher les détails !")
+else:
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown(f"**🏆 Date:** {session_data['gp_races'].iloc[0]['date']}")
+        st.markdown(f"**🏆 Nom GP:** {session_data['gp_details']['fullName']}")
+        st.markdown(f"**🏆 Nom Race:** {session_data['gp_races'].iloc[0]['officialName']}")
+        st.markdown(f"**🏟️ Nom du Circuit:** {session_data['circuit_details']['fullName']}")
+        st.markdown(f"**📍 Lieu:** {session_data['circuit_details']['placeName']}")
+
+    with col2:
+        st.markdown(f"**🔤 Abréviation:** {session_data['gp_details']['abbreviation']}")
+        st.markdown(f"**🛣️ Type de Circuit:** {session_data['circuit_details']['type']}")
+        st.markdown(f"**🌍 Pays:** {session_data['gp_details']['countryId']}")
+        st.markdown(f"**🏎️ Nombre total de courses:** {session_data['circuit_details']['totalRacesHeld']}")
+        st.markdown(f"**📏 Longueur du circuit:** {session_data['gp_races'].iloc[0]['courseLength']} km")
+
+    st.markdown("---")
 
 # Appliquer la fonction aux résultats de course
 st.session_state['races_results'] = calculer_scores(session_data['races_results'], session_data['points_systems'], session_data['pilotes_annee'])

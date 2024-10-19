@@ -28,35 +28,25 @@ st.session_state['circuits'] = circuits
 st.session_state['driver_standings'] = driver_standings
 st.session_state['seasons_entrants_driver'] = seasons_entrants_driver
 
-sidebar_filters(races, grands_prix, circuits, driver_standings)
-selected_gp = st.session_state.get('selected_gp')
-annee_selectionnee = st.session_state.get('annee_selectionnee')
-gp_races = st.session_state.get('gp_races')
-gp_details = st.session_state.get('gp_details')
-circuit_id = st.session_state.get('circuit_id')
-circuit_details = st.session_state.get('circuit_details')
-pilotes_annee = st.session_state.get('pilotes_annee')
+st.markdown("""
+## Présentation de l'application
 
-st.markdown("---")
-st.markdown("### 🏁 Détails du Grand Prix")
+Bienvenue dans notre application d'analyse des Grands Prix de Formule 1 ! Cette application est conçue pour vous fournir une vue d'ensemble complète des courses de Formule 1, en vous permettant d'explorer les résultats des courses, les systèmes de points, et bien plus encore.
 
-if not selected_gp or not annee_selectionnee:
-    st.info("🚦 Veuillez sélectionner un Grand Prix pour afficher les détails !")
-else:
-    col1, col2 = st.columns(2)
+### Fonctionnalités principales
 
-    with col1:
-        st.markdown(f"**🏆 Date:** {gp_races.iloc[0]['date']}")
-        st.markdown(f"**🏆 Nom GP:** {gp_details['fullName']}")
-        st.markdown(f"**🏆 Nom Race:** {gp_races.iloc[0]['officialName']}")
-        st.markdown(f"**🏟️ Nom du Circuit:** {circuit_details['fullName']}")
-        st.markdown(f"**📍 Lieu:** {circuit_details['placeName']}")
+- **Analyse des Courses**: Visualisez les résultats des courses passées et comparez les performances des pilotes.
+- **Systèmes de Points**: Comparez différents systèmes de points pour voir comment ils affectent le classement des pilotes.
+- **Détails des Circuits**: Obtenez des informations détaillées sur chaque circuit, y compris le lieu, le type de circuit, et la longueur.
+- **Classement des Pilotes**: Affichez le classement des pilotes pour une saison ou une course spécifique, avec la possibilité d'inclure des points bonus pour le meilleur tour.
 
-    with col2:
-        st.markdown(f"**🔤 Abréviation:** {gp_details['abbreviation']}")
-        st.markdown(f"**🛣️ Type de Circuit:** {circuit_details['type']}")
-        st.markdown(f"**🌍 Pays:** {gp_details['countryId']}")
-        st.markdown(f"**🏎️ Nombre total de courses:** {circuit_details['totalRacesHeld']}")
-        st.markdown(f"**📏 Longueur du circuit:** {gp_races.iloc[0]['courseLength']} km")
+### Comment utiliser l'application
 
-    st.markdown("---")
+1. **Sélectionnez un Grand Prix**: Utilisez la barre latérale pour choisir un Grand Prix et une année.
+2. **Explorez les Détails**: Consultez les détails du Grand Prix sélectionné, y compris le nom, la date, et le circuit.
+3. **Comparez les Systèmes de Points**: Choisissez deux systèmes de points pour voir comment ils influencent le classement des pilotes.
+4. **Visualisez les Classements**: Affichez les classements des pilotes en fonction des systèmes de points sélectionnés.
+
+Nous espérons que vous trouverez cette application utile pour approfondir votre compréhension des Grands Prix de Formule 1. Profitez de l'exploration des données et des analyses !
+
+""")
