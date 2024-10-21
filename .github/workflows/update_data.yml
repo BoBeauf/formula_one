@@ -5,6 +5,10 @@ on:
     - cron: '0 2 * * *'  # Exécute tous les jours à 2h du matin
   workflow_dispatch:
 
+runs:
+  using: 'node20'
+  main: 'main.js'
+
 jobs:
   update:
     runs-on: ubuntu-latest
