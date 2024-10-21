@@ -2,7 +2,7 @@ name: Update F1DB Data
 
 on:
   schedule:
-    - cron: '0 2 * * *'  # Exécute tous les jours à 2h du matin
+    - cron: '0 12 * * 1'  # Exécute tous les lundis à midi
   workflow_dispatch:
 
 jobs:
