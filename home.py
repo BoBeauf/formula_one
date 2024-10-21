@@ -3,7 +3,7 @@ import pandas as pd
 from typing import Tuple
 from utils.sidebar import sidebar_filters
 
-st.title("Analyse des Grands Prix de Formule 1")
+st.title("Formula 1 Analyzer 🏎️💨")
 
 # Charger les données
 @st.cache_data
@@ -29,24 +29,37 @@ st.session_state['driver_standings'] = driver_standings
 st.session_state['seasons_entrants_driver'] = seasons_entrants_driver
 
 st.markdown("""
-## Présentation de l'application
+## Bienvenue ! 👋
 
-Bienvenue dans notre application d'analyse des Grands Prix de Formule 1 ! Cette application est conçue pour vous fournir une vue d'ensemble complète des courses de Formule 1, en vous permettant d'explorer les résultats des courses, les systèmes de points, et bien plus encore.
+Je suis votre guide ultime pour plonger dans l'univers fascinant des Grands Prix de Formule 1 !
 
-### Fonctionnalités principales
+### 🚀 Fonctionnalités
 
-- **Analyse des Courses**: Visualisez les résultats des courses passées et comparez les performances des pilotes.
-- **Systèmes de Points**: Comparez différents systèmes de points pour voir comment ils affectent le classement des pilotes.
-- **Détails des Circuits**: Obtenez des informations détaillées sur chaque circuit, y compris le lieu, le type de circuit, et la longueur.
-- **Classement des Pilotes**: Affichez le classement des pilotes pour une saison ou une course spécifique, avec la possibilité d'inclure des points bonus pour le meilleur tour.
+- **Driver Seasons**:
+  - 📈 *Suivez l'évolution du classement au championnat pour les pilotes sélectionnés*
+  - 🔄 *Suivez leurs changements d'écuries, saison par saison*
+  - 📊 *Comparez les résultats au fil des saisons*
 
-### Comment utiliser l'application
+- **Map Seasons**: 
+  - 🗺️ *Carte interactive des Grands Prix de l'année sélectionnée*
+  - 🌍 *Comparez les déplacements, le nombre de GP depuis l'existence de la F1*
 
-1. **Sélectionnez un Grand Prix**: Utilisez la barre latérale pour choisir un Grand Prix et une année.
-2. **Explorez les Détails**: Consultez les détails du Grand Prix sélectionné, y compris le nom, la date, et le circuit.
-3. **Comparez les Systèmes de Points**: Choisissez deux systèmes de points pour voir comment ils influencent le classement des pilotes.
-4. **Visualisez les Classements**: Affichez les classements des pilotes en fonction des systèmes de points sélectionnés.
+- **Points Systems**: 
+  - ⚖️ *Comparez les barèmes de points pour la saison et/ou une course sélectionnée*
+  - 📜 *Barèmes de points dispos: anciens F1, motoGP, indycar*
+  - 🏁 *Ajoutez ou non le point du fastest lap dans le calcul des classements*
+  - ⚠️ *Les courses sprints ne sont pas comptabilisées*
 
-Nous espérons que vous trouverez cette application utile pour approfondir votre compréhension des Grands Prix de Formule 1. Profitez de l'exploration des données et des analyses !
+### 🌐 Source des Données
+            
+Les données proviennent du **repo F1DB**. Vous pouvez y accéder ici : [F1DB GitHub](https://github.com/f1db/f1db). Elles sont mises à jour **chaque lundi à midi** 🕛 pour vous garantir les informations les plus récentes et précises.
+
+### 🔍 Explorez le Code Source
+            
+Plongez dans le code source complet de ce projet sur GitHub : [formula_one GitHub](https://github.com/BoBeauf/formula_one). Découvrez comment tout fonctionne sous le capot ! 🚗💨 N'hésitez pas à proposer des améliorations ou des suggestions directement sur GitHub pour contribuer à l'évolution du projet !
+
+### 👨‍💻 Créateur
+            
+Retrouvez-moi sur [GitHub](https://github.com/BoBeauf) et [LinkedIn](https://www.linkedin.com/in/louis-ledoux-data-analyst/) !
 
 """)
