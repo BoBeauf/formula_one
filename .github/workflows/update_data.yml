@@ -40,4 +40,4 @@ jobs:
         git commit -m "Update F1DB data"
         git push
       env:
-        GITHUB_TOKEN: ${{ secrets.WORKLOW_GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
