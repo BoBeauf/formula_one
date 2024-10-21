@@ -4,7 +4,7 @@ import zipfile
 import io
 
 # URL de l'API GitHub pour les releases
-url_api_releases = 'https://api.github.com/repos/f1db/f1db/releases/tags/v2024.18.0'
+url_api_releases = 'https://api.github.com/repos/f1db/f1db/releases/latest'
 
 # Dossier où les fichiers CSV seront stockés
 dossier_csv = 'f1db-csv'
