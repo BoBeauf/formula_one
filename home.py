@@ -15,9 +15,13 @@ def load_data() -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]
     circuits = pd.read_csv('f1db-csv/f1db-circuits.csv')
     driver_standings = pd.read_csv('f1db-csv/f1db-seasons-driver-standings.csv')
     seasons_entrants_driver = pd.read_csv('f1db-csv/f1db-seasons-entrants-drivers.csv')
-    return grands_prix, races, races_results, points_systems, circuits, driver_standings, seasons_entrants_driver
+    constructors = pd.read_csv('f1db-csv/f1db-constructors.csv')
+    constructors_chronology = pd.read_csv('f1db-csv/f1db-constructors-chronology.csv')
+    seasons_constructors_standings = pd.read_csv('f1db-csv/f1db-seasons-constructor-standings.csv')
+    engine_manufacturers = pd.read_csv('f1db-csv/f1db-engine-manufacturers.csv')
+    return grands_prix, races, races_results, points_systems, circuits, driver_standings, seasons_entrants_driver, constructors, constructors_chronology, seasons_constructors_standings, engine_manufacturers
 
-grands_prix, races, races_results, points_systems, circuits, driver_standings, seasons_entrants_driver = load_data()
+grands_prix, races, races_results, points_systems, circuits, driver_standings, seasons_entrants_driver, constructors, constructors_chronology, seasons_constructors_standings, engine_manufacturers = load_data()
 
 # Stocker les DataFrames dans st.session_state
 st.session_state['grands_prix'] = grands_prix
@@ -27,6 +31,10 @@ st.session_state['points_systems'] = points_systems
 st.session_state['circuits'] = circuits
 st.session_state['driver_standings'] = driver_standings
 st.session_state['seasons_entrants_driver'] = seasons_entrants_driver
+st.session_state['constructors'] = constructors
+st.session_state['constructors_chronology'] = constructors_chronology
+st.session_state['seasons_constructors_standings'] = seasons_constructors_standings
+st.session_state['engine_manufacturers'] = engine_manufacturers
 
 st.markdown("""
 ## Bienvenue ! 👋
