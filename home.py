@@ -19,9 +19,11 @@ def load_data() -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]
     constructors_chronology = pd.read_csv('f1db-csv/f1db-constructors-chronology.csv')
     seasons_constructors_standings = pd.read_csv('f1db-csv/f1db-seasons-constructor-standings.csv')
     engine_manufacturers = pd.read_csv('f1db-csv/f1db-engine-manufacturers.csv')
-    return grands_prix, races, races_results, points_systems, circuits, driver_standings, seasons_entrants_driver, constructors, constructors_chronology, seasons_constructors_standings, engine_manufacturers
+    seasons_entrants_driver = pd.read_csv('f1db-csv/f1db-seasons-entrants-drivers.csv')
+    drivers = pd.read_csv('f1db-csv/f1db-drivers.csv')
+    return grands_prix, races, races_results, points_systems, circuits, driver_standings, seasons_entrants_driver, constructors, constructors_chronology, seasons_constructors_standings, engine_manufacturers, seasons_entrants_driver, drivers
 
-grands_prix, races, races_results, points_systems, circuits, driver_standings, seasons_entrants_driver, constructors, constructors_chronology, seasons_constructors_standings, engine_manufacturers = load_data()
+grands_prix, races, races_results, points_systems, circuits, driver_standings, seasons_entrants_driver, constructors, constructors_chronology, seasons_constructors_standings, engine_manufacturers, seasons_entrants_driver, drivers = load_data()
 
 # Stocker les DataFrames dans st.session_state
 st.session_state['grands_prix'] = grands_prix
@@ -35,6 +37,8 @@ st.session_state['constructors'] = constructors
 st.session_state['constructors_chronology'] = constructors_chronology
 st.session_state['seasons_constructors_standings'] = seasons_constructors_standings
 st.session_state['engine_manufacturers'] = engine_manufacturers
+st.session_state['seasons_entrants_driver'] = seasons_entrants_driver
+st.session_state['drivers'] = drivers
 
 st.markdown("""
 ## Bienvenue ! 👋
@@ -57,6 +61,12 @@ Je suis votre guide ultime pour plonger dans l'univers fascinant des Grands Prix
   - 📜 *Barèmes de points dispos: anciens F1, motoGP, indycar*
   - 🏁 *Ajoutez ou non le point du fastest lap dans le calcul des classements*
   - ⚠️ *Les courses sprints ne sont pas comptabilisées*
+            
+- **Racing Teams**:
+  - 📈 *Suivez l'évolution des positions des écuries au championnat*
+  - 🔄 *Suivez leurs changements de noms, saison par saison*
+  - 📊 *Suivez leurs changements de motoristes, saison par saison*
+  - 🏎️ *Suivez leurs pilotes, saison par saison*
 
 ### 🌐 Source des Données
             
