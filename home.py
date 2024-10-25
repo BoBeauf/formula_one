@@ -45,6 +45,7 @@ st.markdown("""
 
 Je suis votre guide ultime pour plonger dans l'univers fascinant des Grands Prix de Formule 1 !
 
+            
 ### 🚀 Fonctionnalités
 
 - **Driver Seasons**:
@@ -52,16 +53,19 @@ Je suis votre guide ultime pour plonger dans l'univers fascinant des Grands Prix
   - 🔄 *Suivez leurs changements d'écuries, saison par saison*
   - 📊 *Comparez les résultats au fil des saisons*
 
+            
 - **Map Seasons**: 
   - 🗺️ *Carte interactive des Grands Prix de l'année sélectionnée*
   - 🌍 *Comparez les déplacements, le nombre de GP depuis l'existence de la F1*
 
+            
 - **Points Systems**: 
   - ⚖️ *Comparez les barèmes de points pour la saison et/ou une course sélectionnée*
   - 📜 *Barèmes de points dispos: anciens F1, motoGP, indycar*
   - 🏁 *Ajoutez ou non le point du fastest lap dans le calcul des classements*
   - ⚠️ *Les courses sprints ne sont pas comptabilisées*
-            
+
+              
 - **Racing Teams**:
   - 📈 *Suivez l'évolution des positions des écuries au championnat*
   - 🔄 *Suivez leurs changements de noms, saison par saison*
