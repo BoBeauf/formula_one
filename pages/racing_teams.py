@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-from streamlit_timeline import st_timeline
 from utils.sidebar import sidebar_filters
 from utils.func import get_session_state_data, get_constructor_standings_data, get_constructor_drivers_data
 
