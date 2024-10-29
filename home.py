@@ -41,47 +41,47 @@ st.session_state['seasons_entrants_driver'] = seasons_entrants_driver
 st.session_state['drivers'] = drivers
 
 st.markdown("""
-## Bienvenue ! 👋
+## Welcome! 👋
 
-Je suis votre guide ultime pour plonger dans l'univers fascinant des Grands Prix de Formule 1 !
+I am your ultimate guide to dive into the fascinating world of Formula 1 Grand Prix!
 
             
-### 🚀 Fonctionnalités
+### 🚀 Features
 
 - **Driver Seasons**:
-  - 📈 *Suivez l'évolution du classement au championnat pour les pilotes sélectionnés*
-  - 🔄 *Suivez leurs changements d'écuries, saison par saison*
-  - 📊 *Comparez les résultats au fil des saisons*
+  - 📈 *Track championship standings evolution for selected drivers*
+  - 🔄 *Follow their team changes, season by season*
+  - 📊 *Compare results over the seasons*
 
             
 - **Map Seasons**: 
-  - 🗺️ *Carte interactive des Grands Prix de l'année sélectionnée*
-  - 🌍 *Comparez les déplacements, le nombre de GP depuis l'existence de la F1*
+  - 🗺️ *Interactive map of Grand Prix for the selected year*
+  - 🌍 *Compare travels, number of GPs since F1's existence*
 
             
 - **Points Systems**: 
-  - ⚖️ *Comparez les barèmes de points pour la saison et/ou une course sélectionnée*
-  - 📜 *Barèmes de points dispos: anciens F1, motoGP, indycar*
-  - 🏁 *Ajoutez ou non le point du fastest lap dans le calcul des classements*
-  - ⚠️ *Les courses sprints ne sont pas comptabilisées*
+  - ⚖️ *Compare points systems for the season and/or selected race*
+  - 📜 *Available points systems: old F1, MotoGP, IndyCar*
+  - 🏁 *Add or remove fastest lap point in standings calculations*
+  - ⚠️ *Sprint races are not counted*
 
               
 - **Racing Teams**:
-  - 📈 *Suivez l'évolution des positions des écuries au championnat*
-  - 🔄 *Suivez leurs changements de noms, saison par saison*
-  - 📊 *Suivez leurs changements de motoristes, saison par saison*
-  - 🏎️ *Suivez leurs pilotes, saison par saison*
+  - 📈 *Track teams' championship positions evolution*
+  - 🔄 *Follow their name changes, season by season*
+  - 📊 *Follow their engine manufacturer changes, season by season*
+  - 🏎️ *Follow their drivers, season by season*
 
-### 🌐 Source des Données
+### 🌐 Data Source
             
-Les données proviennent du **repo F1DB**. Vous pouvez y accéder ici : [F1DB GitHub](https://github.com/f1db/f1db). Elles sont mises à jour **chaque lundi à midi** 🕛 pour vous garantir les informations les plus récentes et précises.
+Data comes from the **F1DB repo**. You can access it here: [F1DB GitHub](https://github.com/f1db/f1db). It is updated **every Monday at noon** 🕛 to ensure you get the most recent and accurate information.
 
-### 🔍 Explorez le Code Source
+### 🔍 Explore the Source Code
             
-Plongez dans le code source complet de ce projet sur GitHub : [formula_one GitHub](https://github.com/BoBeauf/formula_one). Découvrez comment tout fonctionne sous le capot ! 🚗💨 N'hésitez pas à proposer des améliorations ou des suggestions directement sur GitHub pour contribuer à l'évolution du projet !
+Dive into the complete source code of this project on GitHub: [formula_one GitHub](https://github.com/BoBeauf/formula_one). Discover how everything works under the hood! 🚗💨 Don't hesitate to suggest improvements or suggestions directly on GitHub to contribute to the project's evolution!
 
-### 👨‍💻 Créateur
+### 👨‍💻 Creator
             
-Retrouvez-moi sur [GitHub](https://github.com/BoBeauf) et [LinkedIn](https://www.linkedin.com/in/louis-ledoux-data-analyst/) !
+Find me on [GitHub](https://github.com/BoBeauf) and [LinkedIn](https://www.linkedin.com/in/louis-ledoux-data-analyst/)!
 
 """)

@@ -4,94 +4,95 @@ import plotly.express as px
 from utils.sidebar import sidebar_filters
 from utils.func import get_session_state_data, get_constructor_standings_data, get_constructor_drivers_data
 
-# Configuration de la page
-st.set_page_config(page_title="Suivi des écuries", layout="wide")
+# Page configuration
+st.set_page_config(page_title="Teams Tracking", layout="wide")
 
-# Titre de la page
-st.title("Suivi des écuries")
+# Page title
+st.title("Teams Tracking")
 
-# Récupérer les DataFrames depuis st.session_state
+# Get DataFrames from st.session_state
 session_data = get_session_state_data(['constructors', 'constructors_chronology', 'seasons_constructors_standings', 'engine_manufacturers', 'seasons_entrants_driver', 'drivers'])
 
-# Préparation des données
+# Data preparation
 df_constructors = session_data['constructors']
 df_chronology = session_data['constructors_chronology']
 df_season_standings = session_data['seasons_constructors_standings']
 df_engine_manufacturers = session_data['engine_manufacturers']
 df_seasons_entrants_driver = session_data['seasons_entrants_driver']
 df_drivers = session_data['drivers']
-# Ajout d'un filtre pour sélectionner plusieurs constructeurs
-constructeurs_selectionnes = st.multiselect(
-    "Sélectionnez un ou plusieurs constructeurs",
+
+# Add filter to select multiple constructors
+selected_constructors = st.multiselect(
+    "Select one or more constructors",
     options=sorted(df_constructors['fullName'].unique().tolist())
 )
 
-if not constructeurs_selectionnes:
-    st.warning("🚦 Veuillez sélectionner au moins une écurie.")
+if not selected_constructors:
+    st.warning("🚦 Please select at least one team.")
 else:
-    # Initialisation d'un DataFrame vide pour stocker les résultats
+    # Initialize empty DataFrames to store results
     df_all_constructors = pd.DataFrame()
     df_all_constructors_drivers = pd.DataFrame()
 
-    # Appel de la fonction pour chaque constructeur sélectionné
-    for constructeur in constructeurs_selectionnes:
-        df_constructor_standings = get_constructor_standings_data(constructeur, df_constructors, df_chronology, df_season_standings, df_engine_manufacturers, df_seasons_entrants_driver)
+    # Call function for each selected constructor
+    for constructor in selected_constructors:
+        df_constructor_standings = get_constructor_standings_data(constructor, df_constructors, df_chronology, df_season_standings, df_engine_manufacturers, df_seasons_entrants_driver)
         df_all_constructors = pd.concat([df_all_constructors, df_constructor_standings])
     
-    for constructeur in constructeurs_selectionnes:
-        df_constructor_drivers = get_constructor_drivers_data(constructeur, df_constructors, df_chronology, df_seasons_entrants_driver, df_drivers)
+    for constructor in selected_constructors:
+        df_constructor_drivers = get_constructor_drivers_data(constructor, df_constructors, df_chronology, df_seasons_entrants_driver, df_drivers)
         df_all_constructors_drivers = pd.concat([df_all_constructors_drivers, df_constructor_drivers])
 
-    # Préparation des données pour le graphique
+    # Prepare data for the chart
     df_graph = df_all_constructors.sort_values(['id_constructeur', 'year'])
 
-    # Fusionner df_graph avec df_all_constructors_drivers pour obtenir les informations des pilotes
+    # Merge df_graph with df_all_constructors_drivers to get driver information
     df_graph = pd.merge(df_graph, df_all_constructors_drivers[['year', 'id_constructeur', 'driverName']], 
                         on=['year', 'id_constructeur'], how='left')
 
-    # Grouper les pilotes par année et constructeur
+    # Group drivers by year and constructor
     df_graph['drivers'] = df_graph.groupby(['year', 'id_constructeur'])['driverName'].transform(lambda x: ', '.join(x.dropna().unique()))
 
-    # Création du graphique
+    # Create chart
     fig = px.line(df_graph, x='year', y='positionNumber', color='id_constructeur',
-                  title="Évolution des positions des constructeurs au fil des années",
-                  labels={'year': 'Année', 'positionNumber': 'Position', 'constructorName': 'Constructeur', 'id_constructeur': 'Ecurie'},
+                  title="Evolution of constructor positions over the years",
+                  labels={'year': 'Year', 'positionNumber': 'Position', 'constructorName': 'Constructor', 'id_constructeur': 'Team'},
                   markers=True,
                   hover_data=['constructorName', 'engineManufacturerName', 'points', 'drivers'])
 
-    # Inversion de l'axe y pour que la meilleure position (1) soit en haut
+    # Reverse y-axis so best position (1) is at the top
     fig.update_yaxes(autorange="reversed")
 
-    # Personnalisation de la toolbox
+    # Customize toolbox
     fig.update_traces(
         hovertemplate="<b><i>%{customdata[0]}</i></b><br>" +
-                      "<b>Année</b>: %{x}<br>" +
+                      "<b>Year</b>: %{x}<br>" +
                       "<b>Position</b>: %{y}<br>" +
-                      "<b>Motoriste</b>: %{customdata[1]}<br>" +
+                      "<b>Engine Manufacturer</b>: %{customdata[1]}<br>" +
                       "<b>Points</b>: %{customdata[2]}<br>" +
-                      "<b>Pilotes</b>: %{customdata[3]}<extra></extra>"
+                      "<b>Drivers</b>: %{customdata[3]}<extra></extra>"
     )
 
-    # Affichage du graphique
+    # Display chart
     st.plotly_chart(fig)
 
-    # Création d'un tableau des pilotes pour chaque écurie
-    st.markdown("### 👨‍🚀 Pilotes par écurie")
+    # Create drivers table for each team
+    st.markdown("### 👨‍🚀 Drivers by Team")
 
-    # Créer une liste de paires de constructeurs
-    paires_constructeurs = [constructeurs_selectionnes[i:i+2] for i in range(0, len(constructeurs_selectionnes), 2)]
+    # Create list of constructor pairs
+    constructor_pairs = [selected_constructors[i:i+2] for i in range(0, len(selected_constructors), 2)]
     
-    for paire in paires_constructeurs:
+    for pair in constructor_pairs:
         cols = st.columns(2)
         
-        for i, constructeur in enumerate(paire):
+        for i, constructor in enumerate(pair):
             with cols[i]:
-                st.subheader(f"Pilotes de {constructeur}")
+                st.subheader(f"Drivers for {constructor}")
                 
-                # Filtrer les données pour le constructeur actuel
-                df_constructeur = df_all_constructors_drivers[df_all_constructors_drivers['id_constructeur'] == constructeur]
+                # Filter data for current constructor
+                df_constructor = df_all_constructors_drivers[df_all_constructors_drivers['id_constructeur'] == constructor]
                 
-                # Afficher le tableau
-                st.dataframe(df_constructeur[['year', 'driverName', 'testDriver']].set_index('year'), use_container_width=True)
+                # Display table
+                st.dataframe(df_constructor[['year', 'driverName', 'testDriver']].set_index('year'), use_container_width=True)
         
         st.markdown("---")
