@@ -106,3 +106,51 @@
                                                       "orientation": {"axis": "top", "item": "top"}})
         
         st.write("---")
+
+
+import streamlit as st
+import pandas as pd
+import plotly.express as px
+from utils.sidebar import sidebar_filters
+from utils.func import get_session_state_data, get_constructor_standings_data, get_constructor_drivers_data
+
+session_data = get_session_state_data(['races_results', 'qualifying_results'])
+
+df_races_results = session_data['races_results']
+df_qualifying_results = session_data['qualifying_results']
+# Create stats by constructor per year
+stats_by_constructor = pd.DataFrame()
+
+# Best result of the year
+best_result = df_races_results.groupby(['year', 'constructorId'])['positionNumber'].min().reset_index(name='best_position')
+stats_by_constructor = best_result
+
+# Number of victories (position=1)
+victories = df_races_results[df_races_results['positionNumber'] == 1].groupby(['year', 'constructorId']).size().reset_index(name='victories')
+stats_by_constructor = pd.merge(stats_by_constructor, victories, on=['year', 'constructorId'], how='outer')
+
+# Number of DNFs (positionText contains 'DNF')
+dnfs = df_races_results[df_races_results['positionText'] == 'DNF'].groupby(['year', 'constructorId']).size().reset_index(name='dnfs')
+stats_by_constructor = pd.merge(stats_by_constructor, dnfs, on=['year', 'constructorId'], how='outer')
+
+# Number of podiums (position 1-3)
+podiums = df_races_results[df_races_results['positionNumber'].isin([1,2,3])].groupby(['year', 'constructorId']).size().reset_index(name='podiums')
+stats_by_constructor = pd.merge(stats_by_constructor, podiums, on=['year', 'constructorId'], how='outer')
+
+# Best qualifying position
+best_qualif = df_qualifying_results.groupby(['year', 'constructorId'])['positionNumber'].min().reset_index(name='best_qualif_position')
+stats_by_constructor = pd.merge(stats_by_constructor, best_qualif, on=['year', 'constructorId'], how='outer')
+
+# Number of pole positions (qualifying position=1)
+poles = df_qualifying_results[df_qualifying_results['positionNumber'] == 1].groupby(['year', 'constructorId']).size().reset_index(name='pole_positions')
+stats_by_constructor = pd.merge(stats_by_constructor, poles, on=['year', 'constructorId'], how='outer')
+
+# Fill NaN values with 0
+stats_by_constructor = stats_by_constructor.fillna(0)
+
+# Sort values by year and victories
+stats_by_constructor = stats_by_constructor.sort_values(['year', 'victories'], ascending=[True, False])
+
+# Show data table
+st.write("Constructor Statistics per Year:")
+st.dataframe(stats_by_constructor)

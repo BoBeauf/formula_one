@@ -13,18 +13,24 @@ def get_session_state_data(keys):
     """Récupère les données de st.session_state pour les clés spécifiées et les met en cache."""
     return {key: st.session_state.get(key) for key in keys}
 
-# Fonction pour obtenir les données de classement des constructeurs
-# Cette fonction filtre et prépare les données pour un constructeur spécifique
-# Elle combine les informations des différentes tables pour créer un DataFrame complet
-# Paramètres:
-#   - nom_constructeur: le nom complet du constructeur à analyser
-#   - df_constructors: DataFrame contenant les informations sur les constructeurs
-#   - df_chronology: DataFrame contenant la chronologie des constructeurs
-#   - df_season_standings: DataFrame contenant les classements des constructeurs par saison
-#   - df_engine_manufacturers: DataFrame contenant les informations sur les motoristes
-# Retourne:
-#   Un DataFrame filtré et formaté avec les données de classement du constructeur spécifié
-def get_constructor_standings_data(nom_constructeur, df_constructors, df_chronology, df_season_standings, df_engine_manufacturers, df_seasons_entrants_driver):
+# Function to get constructor standings data
+# This function filters and prepares data for a specific constructor
+# It combines information from different tables to create a complete DataFrame with performance statistics
+# Parameters:
+#   - nom_constructeur: full name of the constructor to analyze
+#   - df_constructors: DataFrame containing constructor information
+#   - df_chronology: DataFrame containing constructor chronology/history
+#   - df_season_standings: DataFrame containing constructor championship standings by season
+#   - df_engine_manufacturers: DataFrame containing engine manufacturer information
+#   - df_seasons_entrants_driver: DataFrame containing driver entries by season
+#   - df_races_results: DataFrame containing race results
+#   - df_qualifying_results: DataFrame containing qualifying results
+# Returns:
+#   A filtered and formatted DataFrame with the specified constructor's standings data including:
+#   - Championship positions and points
+#   - Race statistics (victories, podiums, DNFs, best finish)
+#   - Qualifying statistics (pole positions, best qualifying position)
+def get_constructor_standings_data(nom_constructeur, df_constructors, df_chronology, df_season_standings, df_engine_manufacturers, df_seasons_entrants_driver, df_races_results, df_qualifying_results):
     # Application du filtre
     df_constructors_filtered = df_constructors[df_constructors['fullName'] == nom_constructeur]
     parent_constructor_ids = df_constructors_filtered['id'].tolist()
@@ -36,36 +42,80 @@ def get_constructor_standings_data(nom_constructeur, df_constructors, df_chronol
     if not constructor_ids:
         constructor_ids = parent_constructor_ids
 
+    # Filter race and qualifying results for the selected constructor
+    df_races_results_filtered = df_races_results[df_races_results['constructorId'].isin(constructor_ids)]
+    df_qualifying_results_filtered = df_qualifying_results[df_qualifying_results['constructorId'].isin(constructor_ids)]
+
+    # Calculate statistics
+    # Best result of the year
+    best_result = df_races_results_filtered.groupby(['year', 'constructorId'])['positionNumber'].min().reset_index(name='best_position')
+    
+    # Number of victories
+    victories = df_races_results_filtered[df_races_results_filtered['positionNumber'] == 1].groupby(['year', 'constructorId']).size().reset_index(name='victories')
+    
+    # Number of DNFs
+    dnfs = df_races_results_filtered[df_races_results_filtered['positionText'] == 'DNF'].groupby(['year', 'constructorId']).size().reset_index(name='dnfs')
+    
+    # Number of podiums
+    podiums = df_races_results_filtered[df_races_results_filtered['positionNumber'].isin([1,2,3])].groupby(['year', 'constructorId']).size().reset_index(name='podiums')
+    
+    # Best qualifying position
+    best_qualif = df_qualifying_results_filtered.groupby(['year', 'constructorId'])['positionNumber'].min().reset_index(name='best_qualif_position')
+    
+    # Number of pole positions
+    poles = df_qualifying_results_filtered[df_qualifying_results_filtered['positionNumber'] == 1].groupby(['year', 'constructorId']).size().reset_index(name='pole_positions')
+
+    # Get season standings data
     df_season_standings_filtered = df_season_standings[df_season_standings['constructorId'].isin(constructor_ids)]
     df_season_standings_filtered = df_season_standings_filtered[['year', 'constructorId', 'engineManufacturerId', 'positionNumber', 'points']]
 
-    # Effectuer un left join entre df_season_standings_filtered et df_constructors
-    df_season_standings_filtered = pd.merge(
-        df_season_standings_filtered,
+    # Merge all statistics
+    stats_merged = df_season_standings_filtered.merge(best_result, on=['year', 'constructorId'], how='left')
+    stats_merged = stats_merged.merge(victories, on=['year', 'constructorId'], how='left')
+    stats_merged = stats_merged.merge(dnfs, on=['year', 'constructorId'], how='left')
+    stats_merged = stats_merged.merge(podiums, on=['year', 'constructorId'], how='left')
+    stats_merged = stats_merged.merge(best_qualif, on=['year', 'constructorId'], how='left')
+    stats_merged = stats_merged.merge(poles, on=['year', 'constructorId'], how='left')
+
+    # Fill NaN values with 0
+    stats_merged = stats_merged.fillna(0)
+
+    # Merge with constructor and engine manufacturer information
+    stats_merged = pd.merge(
+        stats_merged,
         df_constructors[['id', 'fullName']],
         left_on='constructorId',
         right_on='id',
         how='left'
     )
 
-    df_season_standings_filtered = pd.merge(
-        df_season_standings_filtered,
+    stats_merged = pd.merge(
+        stats_merged,
         df_engine_manufacturers[['id', 'name']],
         left_on='engineManufacturerId',
         right_on='id',
         how='left'
     )
 
-    # Renommer les colonnes pour plus de clarté
-    df_season_standings_filtered = df_season_standings_filtered.rename(columns={'fullName': 'constructorName', 'name': 'engineManufacturerName'})
+    # Rename columns for clarity
+    stats_merged = stats_merged.rename(columns={
+        'fullName': 'constructorName',
+        'name': 'engineManufacturerName',
+        'positionNumber': 'championship_position'
+    })
 
-    # Réorganiser les colonnes pour une meilleure lisibilité
-    df_season_standings_filtered = df_season_standings_filtered[['year', 'constructorName', 'engineManufacturerName', 'positionNumber', 'points']]
+    # Select and reorder columns
+    final_columns = [
+        'year', 'constructorName', 'engineManufacturerName', 'championship_position',
+        'points', 'best_position', 'victories', 'podiums', 'dnfs',
+        'best_qualif_position', 'pole_positions'
+    ]
+    stats_merged = stats_merged[final_columns]
 
-    # Ajouter nom_constructeur à l'output
-    df_season_standings_filtered['id_constructeur'] = nom_constructeur
+    # Add constructor identifier
+    stats_merged['id_constructeur'] = nom_constructeur
 
-    return df_season_standings_filtered
+    return stats_merged
 
 def get_constructor_drivers_data(nom_constructeur, df_constructors, df_chronology, df_seasons_entrants_driver, df_drivers):
     # Application du filtre

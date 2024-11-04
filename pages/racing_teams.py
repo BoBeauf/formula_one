@@ -11,7 +11,7 @@ st.set_page_config(page_title="Teams Tracking", layout="wide")
 st.title("Teams Tracking")
 
 # Get DataFrames from st.session_state
-session_data = get_session_state_data(['constructors', 'constructors_chronology', 'seasons_constructors_standings', 'engine_manufacturers', 'seasons_entrants_driver', 'drivers'])
+session_data = get_session_state_data(['constructors', 'constructors_chronology', 'seasons_constructors_standings', 'engine_manufacturers', 'seasons_entrants_driver', 'drivers', 'races_results', 'qualifying_results'])
 
 # Data preparation
 df_constructors = session_data['constructors']
@@ -20,12 +20,34 @@ df_season_standings = session_data['seasons_constructors_standings']
 df_engine_manufacturers = session_data['engine_manufacturers']
 df_seasons_entrants_driver = session_data['seasons_entrants_driver']
 df_drivers = session_data['drivers']
+df_races_results = session_data['races_results']
+df_qualifying_results = session_data['qualifying_results']
 
-# Add filter to select multiple constructors
-selected_constructors = st.multiselect(
-    "Select one or more constructors",
-    options=sorted(df_constructors['fullName'].unique().tolist())
-)
+# Create two columns for filters
+col1, col2 = st.columns(2)
+
+# Add filter to select multiple constructors in first column
+with col1:
+    selected_constructors = st.multiselect(
+        "Select one or more constructors",
+        options=sorted(df_constructors['fullName'].unique().tolist())
+    )
+
+# Add dropdown for y-axis selection in second column
+with col2:
+    y_axis_option = st.selectbox(   
+        "Select the metric to display",
+        options=['championship_position', 'victories', 'podiums', 'pole_positions', 'best_position', 'best_qualif_position', 'dnfs'],
+        format_func=lambda x: {
+            'championship_position': 'Championship Position',
+            'victories': 'Race Victories',
+            'podiums': 'Podium Finishes',
+            'pole_positions': 'Pole Positions', 
+            'best_position': 'Best Race Position',
+            'best_qualif_position': 'Best Qualifying Position',
+            'dnfs': 'DNFs'
+        }[x]
+    )
 
 if not selected_constructors:
     st.warning("🚦 Please select at least one team.")
@@ -36,7 +58,7 @@ else:
 
     # Call function for each selected constructor
     for constructor in selected_constructors:
-        df_constructor_standings = get_constructor_standings_data(constructor, df_constructors, df_chronology, df_season_standings, df_engine_manufacturers, df_seasons_entrants_driver)
+        df_constructor_standings = get_constructor_standings_data(constructor, df_constructors, df_chronology, df_season_standings, df_engine_manufacturers, df_seasons_entrants_driver, df_races_results, df_qualifying_results)
         df_all_constructors = pd.concat([df_all_constructors, df_constructor_standings])
     
     for constructor in selected_constructors:
@@ -54,9 +76,9 @@ else:
     df_graph['drivers'] = df_graph.groupby(['year', 'id_constructeur'])['driverName'].transform(lambda x: ', '.join(x.dropna().unique()))
 
     # Create chart
-    fig = px.line(df_graph, x='year', y='positionNumber', color='id_constructeur',
-                  title="Evolution of constructor positions over the years",
-                  labels={'year': 'Year', 'positionNumber': 'Position', 'constructorName': 'Constructor', 'id_constructeur': 'Team'},
+    fig = px.line(df_graph, x='year', y=y_axis_option, color='id_constructeur',
+                  title=f"Evolution of constructor {y_axis_option.replace('_', ' ').title()} over the years",
+                  labels={'year': 'Year', y_axis_option: 'Metric Value', 'constructorName': 'Constructor', 'id_constructeur': 'Team'},
                   markers=True,
                   hover_data=['constructorName', 'engineManufacturerName', 'points', 'drivers'])
 
@@ -67,7 +89,7 @@ else:
     fig.update_traces(
         hovertemplate="<b><i>%{customdata[0]}</i></b><br>" +
                       "<b>Year</b>: %{x}<br>" +
-                      "<b>Position</b>: %{y}<br>" +
+                      "<b>Metric Value</b>: %{y}<br>" +
                       "<b>Engine Manufacturer</b>: %{customdata[1]}<br>" +
                       "<b>Points</b>: %{customdata[2]}<br>" +
                       "<b>Drivers</b>: %{customdata[3]}<extra></extra>"
