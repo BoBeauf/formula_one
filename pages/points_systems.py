@@ -92,33 +92,33 @@ else:
 
     st.markdown("---")
 
-# Apply function to race results
-st.session_state['races_results'] = calculate_scores(session_data['races_results'], session_data['points_systems'], session_data['pilotes_annee'])
+    # Apply function to race results
+    st.session_state['races_results'] = calculate_scores(session_data['races_results'], session_data['points_systems'], session_data['pilotes_annee'])
 
-# Get results for selected race
-selected_race = session_data['gp_races'][session_data['gp_races']['year'] == session_data['annee_selectionnee']].iloc[0] if session_data['gp_races'] is not None else None
-race_results = session_data['races_results'][
-    (session_data['races_results']['raceId'] == selected_race['id']) &
-    (session_data['races_results']['year'] == session_data['annee_selectionnee'])
-]
+    # Get results for selected race
+    selected_race = session_data['gp_races'][session_data['gp_races']['year'] == session_data['annee_selectionnee']].iloc[0] if session_data['gp_races'] is not None else None
+    race_results = session_data['races_results'][
+        (session_data['races_results']['raceId'] == selected_race['id']) &
+        (session_data['races_results']['year'] == session_data['annee_selectionnee'])
+    ]
 
-# Display driver standings
-st.subheader(f"Driver standings for {session_data['selected_gp']} {session_data['annee_selectionnee']}")
+    # Display driver standings
+    st.subheader(f"Driver standings for {session_data['selected_gp']} {session_data['annee_selectionnee']}")
 
-# Add button to choose between position and points display
-display_race_or_year = st.selectbox("Season or race results", options=[True, False], format_func=lambda x: "Season" if x else "Race", index=0)
+    # Add button to choose between position and points display
+    display_race_or_year = st.selectbox("Season or race results", options=[True, False], format_func=lambda x: "Season" if x else "Race", index=0)
 
-# Allow user to choose two points systems for comparison
-col1, col2 = st.columns(2)
-points_systems = [col.split('_', 1)[1] for col in race_results.columns if col.startswith('points_') and not col.startswith('points_cumules_') and not col.endswith('_fastest_lap')]
+    # Allow user to choose two points systems for comparison
+    col1, col2 = st.columns(2)
+    points_systems = [col.split('_', 1)[1] for col in race_results.columns if col.startswith('points_') and not col.startswith('points_cumules_') and not col.endswith('_fastest_lap')]
 
-with col1:
-    points_chosen_1 = st.selectbox("Choose first points system", points_systems, key='points_chosen_1', index=0)
-    use_bonus_1 = st.checkbox("Include bonus point for fastest lap", value=True, key='use_bonus_1')
-with col2:
-    points_chosen_2 = st.selectbox("Choose second points system", points_systems, key='points_chosen_2', index=1)
-    use_bonus_2 = st.checkbox("Include bonus point for fastest lap", value=True, key='use_bonus_2')
+    with col1:
+        points_chosen_1 = st.selectbox("Choose first points system", points_systems, key='points_chosen_1', index=0)
+        use_bonus_1 = st.checkbox("Include bonus point for fastest lap", value=True, key='use_bonus_1')
+    with col2:
+        points_chosen_2 = st.selectbox("Choose second points system", points_systems, key='points_chosen_2', index=1)
+        use_bonus_2 = st.checkbox("Include bonus point for fastest lap", value=True, key='use_bonus_2')
 
-# Display tables side by side
-display_standings(race_results, points_chosen_1, use_bonus_1, col1)
-display_standings(race_results, points_chosen_2, use_bonus_2, col2)
+    # Display tables side by side
+    display_standings(race_results, points_chosen_1, use_bonus_1, col1)
+    display_standings(race_results, points_chosen_2, use_bonus_2, col2)
