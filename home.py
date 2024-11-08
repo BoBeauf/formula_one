@@ -22,9 +22,9 @@ def load_data() -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]
     seasons_entrants_driver = pd.read_csv('f1db-csv/f1db-seasons-entrants-drivers.csv')
     drivers = pd.read_csv('f1db-csv/f1db-drivers.csv')
     qualifying_results = pd.read_csv('f1db-csv/f1db-races-qualifying-results.csv')
-    return grands_prix, races, races_results, points_systems, circuits, driver_standings, seasons_entrants_driver, constructors, constructors_chronology, seasons_constructors_standings, engine_manufacturers, seasons_entrants_driver, drivers, qualifying_results
+    return grands_prix, races, races_results, points_systems, circuits, driver_standings, seasons_entrants_driver, constructors, constructors_chronology, seasons_constructors_standings, engine_manufacturers, seasons_entrants_driver, drivers, qualifying_results, season_driver_standings
 
-grands_prix, races, races_results, points_systems, circuits, driver_standings, seasons_entrants_driver, constructors, constructors_chronology, seasons_constructors_standings, engine_manufacturers, seasons_entrants_driver, drivers, qualifying_results = load_data()
+grands_prix, races, races_results, points_systems, circuits, driver_standings, seasons_entrants_driver, constructors, constructors_chronology, seasons_constructors_standings, engine_manufacturers, seasons_entrants_driver, drivers, qualifying_results, season_driver_standings = load_data()
 
 # Stocker les DataFrames dans st.session_state
 st.session_state['grands_prix'] = grands_prix
@@ -33,6 +33,7 @@ st.session_state['races_results'] = races_results
 st.session_state['points_systems'] = points_systems
 st.session_state['circuits'] = circuits
 st.session_state['driver_standings'] = driver_standings
+st.session_state['season_driver_standings'] = season_driver_standings
 st.session_state['seasons_entrants_driver'] = seasons_entrants_driver
 st.session_state['constructors'] = constructors
 st.session_state['constructors_chronology'] = constructors_chronology

@@ -80,7 +80,8 @@ else:
                   title=f"Evolution of constructor {y_axis_option.replace('_', ' ').title()} over the years",
                   labels={'year': 'Year', y_axis_option: 'Metric Value', 'constructorName': 'Constructor', 'id_constructeur': 'Team'},
                   markers=True,
-                  hover_data=['constructorName', 'engineManufacturerName', 'points', 'drivers'])
+                  hover_data=['constructorName', 'engineManufacturerName', 'points', 'drivers'],
+                  height=600)
 
     # Reverse y-axis so best position (1) is at the top
     fig.update_yaxes(autorange="reversed")

@@ -117,6 +117,66 @@ def get_constructor_standings_data(nom_constructeur, df_constructors, df_chronol
 
     return stats_merged
 
+def get_driver_standings_data(driverId, df_races_results, df_qualifying_results, df_drivers, df_driver_standings):
+    # Filter race results for the driver
+    df_races_filtered = df_races_results[df_races_results['driverId'] == driverId]
+    df_qualifying_filtered = df_qualifying_results[df_qualifying_results['driverId'] == driverId]
+    df_driver_standings = df_driver_standings[df_driver_standings['driverId'] == driverId]
+
+    # Calculate statistics by year
+    # Best race position
+    best_result = df_races_filtered.groupby('year')['positionNumber'].min().reset_index()
+    best_result = best_result.rename(columns={'positionNumber': 'best_position'})
+
+    # Race victories 
+    victories = df_races_filtered[df_races_filtered['positionNumber'] == 1].groupby('year').size().reset_index(name='victories')
+
+    # Podiums (positions 1-3)
+    podiums = df_races_filtered[df_races_filtered['positionNumber'] <= 3].groupby('year').size().reset_index(name='podiums')
+
+    # DNFs
+    dnfs = df_races_filtered[df_races_filtered['positionNumber'] > 900].groupby('year').size().reset_index(name='dnfs')
+
+    # Best qualifying position
+    best_qualif = df_qualifying_filtered.groupby('year')['positionNumber'].min().reset_index()
+    best_qualif = best_qualif.rename(columns={'positionNumber': 'best_qualif_position'})
+
+    # Pole positions
+    poles = df_qualifying_filtered[df_qualifying_filtered['positionNumber'] == 1].groupby('year').size().reset_index(name='pole_positions')
+
+    # Championship position and points from standings
+    championship = df_driver_standings.groupby('year').agg({
+        'positionNumber': 'min',
+        'points': 'sum'
+    }).reset_index()
+    championship = championship.rename(columns={'positionNumber': 'championship_position'})
+
+    # Merge all statistics
+    stats_merged = championship.merge(best_result, on='year', how='left')
+    stats_merged = stats_merged.merge(victories, on='year', how='left')
+    stats_merged = stats_merged.merge(podiums, on='year', how='left')
+    stats_merged = stats_merged.merge(dnfs, on='year', how='left')
+    stats_merged = stats_merged.merge(best_qualif, on='year', how='left')
+    stats_merged = stats_merged.merge(poles, on='year', how='left')
+
+    # Fill NaN values with 0
+    stats_merged = stats_merged.fillna(0)
+
+    # Add driver name
+    driver_name = df_drivers[df_drivers['id'] == driverId]['fullName'].iloc[0]
+    stats_merged['driverName'] = driver_name
+    stats_merged['driverId'] = driverId
+
+    # Select and reorder columns
+    final_columns = [
+        'year', 'driverId', 'driverName', 'championship_position', 'points', 
+        'best_position', 'victories', 'podiums', 'dnfs',
+        'best_qualif_position', 'pole_positions'
+    ]
+    stats_merged = stats_merged[final_columns]
+
+    return stats_merged
+
 def get_constructor_drivers_data(nom_constructeur, df_constructors, df_chronology, df_seasons_entrants_driver, df_drivers):
     # Application du filtre
     df_constructors_filtered = df_constructors[df_constructors['fullName'] == nom_constructeur]
