@@ -64,7 +64,7 @@ with col2:
     )
 
 if not selected_drivers:
-    st.warning("🚦 Please select at least one team.")
+    st.warning("🚦 Please select at least one driver.")
 
 else:
     df_all_drivers_standings = pd.DataFrame()
