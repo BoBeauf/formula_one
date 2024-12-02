@@ -22,12 +22,12 @@
 "emw","EMW","germany",,24,,0,1,1,0,12,0,0,0,0,0,0
 "era","ERA","united-kingdom",,10,6,0,4,4,0,452,0,0,0,0,0,0
 "european","European","united-kingdom",11,17,9,0,17,17,0,1417,0,0,0,0,0,0
-"ferrari","Ferrari","italy",1,1,1,16,1100,1098,249,202124,832,633,11633.0,11277.0,255,273
+"ferrari","Ferrari","italy",1,1,1,16,1101,1099,249,202448,833,634,11676.0,11320.0,255,273
 "fondmetal","Fondmetal","italy",10,18,8,0,17,17,0,1755,0,0,0,0,0,0
 "ford","Ford","united-states-of-america",1,1,1,10,528,525,176,248791,533,289,4634.0,4266.5,139,161
 "gordini","Gordini","france",,3,3,0,40,40,0,4579,2,2,0,0,0,1
 "hart","Hart","united-kingdom",5,1,2,0,158,145,0,11358,5,5,63,63,2,2
-"honda-rbpt","Honda RBPT","japan",1,1,1,1,44,44,29,9889,47,34,1486,1486,22,17
+"honda-rbpt","Honda RBPT","japan",1,1,1,1,45,45,30,10098,48,35,1512,1512,22,17
 "honda","Honda","japan",1,1,1,6,482,481,89,64365,223,164,3411.0,3409.0,90,76
 "ilmor","Ilmor","united-kingdom",6,7,4,0,48,37,0,3642,0,0,12,12,0,0
 "jaguar","Jaguar","united-kingdom",,25,,0,1,1,0,17,0,0,0,0,0,0
@@ -42,7 +42,7 @@
 "matra","Matra","france",4,1,1,0,126,125,3,8305,24,24,175,173,4,6
 "mecachrome","Mecachrome","france",3,2,3,0,16,16,0,1727,3,3,38,38,0,0
 "megatron","Megatron","germany",5,5,3,0,32,32,0,4068,1,1,35,35,0,0
-"mercedes","Mercedes","germany",1,1,1,10,587,585,221,144656,610,415,15058.5,14771.5,231,220
+"mercedes","Mercedes","germany",1,1,1,10,588,586,221,145005,611,416,15117.5,14830.5,232,221
 "milano","Milano","italy",,11,,0,3,3,0,32,0,0,0,0,0,0
 "motori-moderni","Motori Moderni","italy",,11,8,0,46,43,0,1963,0,0,0,0,0,0
 "mugen-honda","Mugen-Honda","japan",3,1,1,0,147,147,4,13460,16,15,182,182,1,0
@@ -57,7 +57,7 @@
 "porsche","Porsche","germany",3,1,1,0,42,37,1,3580,5,5,50,46,1,0
 "pratt-whitney","Pratt & Whitney","united-states-of-america",,18,8,0,3,3,0,117,0,0,0,0,0,0
 "rbpt","RBPT","japan",1,1,1,1,22,22,17,4792,28,20,794,794,8,8
-"renault","Renault","france",1,1,1,12,748,745,169,132179,465,323,8206.5,8190.5,213,177
+"renault","Renault","france",1,1,1,12,749,746,169,132236,465,323,8216.5,8200.5,213,177
 "repco","Repco","australia",1,1,1,2,33,33,8,3550,25,17,175,115,7,4
 "sauber","Sauber","switzerland",7,5,4,0,16,16,0,1420,0,0,12,12,0,0
 "scarab","Scarab","united-states-of-america",,15,10,0,5,2,0,87,0,0,0,0,0,0
