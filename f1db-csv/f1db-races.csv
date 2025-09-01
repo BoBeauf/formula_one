@@ -1034,7 +1034,7 @@
 1033,2020,15,"2020-11-29",,"bahrain","Formula 1 Gulf Air Bahrain Grand Prix 2020","KNOCKOUT",,"bahrain","RACE","CLOCKWISE",5.412,15,57,308.238,,,false,false,,,,,,,,,,,,,,,,,,,,,,
 1034,2020,16,"2020-12-06",,"sakhir","Formula 1 Rolex Sakhir Grand Prix 2020","KNOCKOUT",,"bahrain","RACE","CLOCKWISE",3.543,11,87,307.995,,,false,false,,,,,,,,,,,,,,,,,,,,,,
 1035,2020,17,"2020-12-13",,"abu-dhabi","Formula 1 Etihad Airways Abu Dhabi Grand Prix 2020","KNOCKOUT",,"yas-marina","RACE","ANTI_CLOCKWISE",5.554,21,55,305.355,,,false,false,,,,,,,,,,,,,,,,,,,,,,
-1036,2021,1,"2021-03-28",,"bahrain","Formula 1 Gulf Air Bahrain Grand Prix 2021","KNOCKOUT",,"bahrain","RACE","CLOCKWISE",5.412,15,57,308.238,,,false,false,,,,,,,,,,,,,,,,,,,,,,
+1036,2021,1,"2021-03-28",,"bahrain","Formula 1 Gulf Air Bahrain Grand Prix 2021","KNOCKOUT",,"bahrain","RACE","CLOCKWISE",5.412,15,56,302.826,57,308.238,false,false,,,,,,,,,,,,,,,,,,,,,,
 1037,2021,2,"2021-04-18",,"emilia-romagna","Formula 1 Pirelli Gran Premio del Made in Italy e dell'Emilia Romagna 2021","KNOCKOUT",,"imola","RACE","ANTI_CLOCKWISE",4.909,19,63,309.050,,,false,false,,,,,,,,,,,,,,,,,,,,,,
 1038,2021,3,"2021-05-02",,"portugal","Formula 1 Heineken Grande Prémio de Portugal 2021","KNOCKOUT",,"portimao","RACE","CLOCKWISE",4.653,15,66,306.826,,,false,false,,,,,,,,,,,,,,,,,,,,,,
 1039,2021,4,"2021-05-09",,"spain","Formula 1 Aramco Gran Premio de España 2021","KNOCKOUT",,"catalunya","RACE","CLOCKWISE",4.675,16,66,308.424,,,false,false,,,,,,,,,,,,,,,,,,,,,,
