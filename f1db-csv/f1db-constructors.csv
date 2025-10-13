@@ -13,7 +13,7 @@
 "arrows","Arrows","Arrows Grand Prix International","united-kingdom",5,1,2,0,296,291,0,0,24515,8,8,142,142,1,0
 "arzani-volpini","Arzani-Volpini","Scuderia Arzani-Volpini","italy",,,,0,1,0,0,0,0,0,0,0,0,0,0
 "aston-butterworth","Aston Butterworth","Aston Butterworth","united-kingdom",,15,,0,4,2,0,0,19,0,0,0,0,0,0
-"aston-martin","Aston Martin","Aston Martin","united-kingdom",5,2,2,0,114,113,0,0,12433,9,9,572,572,0,3
+"aston-martin","Aston Martin","Aston Martin","united-kingdom",5,2,2,0,114,113,0,0,12433,9,9,574,574,0,3
 "ats-wheels","ATS","ATS Wheels","germany",11,4,5,0,107,89,0,0,4375,0,0,7,7,0,0
 "ats","ATS","Automobili Turismo e Sport","italy",,13,11,0,5,5,0,0,250,0,0,0,0,0,0
 "balsa","Balsa","Balsa","germany",,25,,0,1,1,0,0,5,0,0,0,0,0,0
@@ -55,7 +55,7 @@
 "eurobrun","EuroBrun","EuroBrun Racing","italy",,15,11,0,46,15,0,0,841,0,0,0,0,0,0
 "ewing","Ewing","Ewing","united-states-of-america",,1,17,0,2,2,0,0,294,0,0,0,0,1,0
 "ferguson","Ferguson","Harry Ferguson Research","united-kingdom",,20,,0,1,1,0,0,56,0,0,0,0,0,0
-"ferrari","Ferrari","Scuderia Ferrari","italy",1,1,1,16,1118,1116,248,87,126077,834,637,10933.0,10577.0,254,266
+"ferrari","Ferrari","Scuderia Ferrari","italy",1,1,1,16,1118,1116,248,87,126077,834,637,10931.0,10575.0,254,266
 "first","FIRST","FIRST Racing","italy",,,,0,0,0,0,0,0,0,0,0,0,0,0
 "fittipaldi","Fittipaldi","Fittipaldi Automotive","brazil",7,5,2,0,120,103,0,0,5343,3,3,44,44,0,0
 "fondmetal","Fondmetal","Fondmetal","italy",,10,10,0,29,19,0,0,736,0,0,0,0,0,0
@@ -110,7 +110,7 @@
 "maserati","Maserati","Maserati","italy",5,1,1,0,73,70,9,1,16375,37,28,9,6,10,17
 "matra","Matra","Equipe Matra Sports","france",1,1,1,1,63,62,9,2,6134,21,17,184,163,4,12
 "mcguire","McGuire","McGuire","australia",,,,0,1,0,0,0,0,0,0,0,0,0,0
-"mclaren","McLaren","McLaren Racing","united-kingdom",1,1,1,9,992,988,201,56,105120,552,440,7925.5,7600.5,173,183
+"mclaren","McLaren","McLaren Racing","united-kingdom",1,1,1,10,992,988,201,56,105120,552,440,7925.5,7600.5,173,183
 "mercedes","Mercedes","Mercedes AMG F1","germany",1,1,1,8,335,335,131,60,38579,307,209,8015.5,8015.5,143,113
 "merzario","Merzario","Team Merzario","italy",,20,,0,31,10,0,0,272,0,0,0,0,0,0
 "meskowski","Meskowski","Meskowski","united-states-of-america",,21,8,0,1,1,0,0,394,0,0,0,0,0,0
