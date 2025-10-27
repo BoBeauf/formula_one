@@ -10438,3 +10438,13 @@
 1144,2025,19,8,8,"8","kick-sauber","ferrari",59,0
 1144,2025,19,9,9,"9","haas","ferrari",48,0
 1144,2025,19,10,10,"10","alpine","renault",20,0
+1145,2025,20,1,1,"1","mclaren","mercedes",713,0
+1145,2025,20,2,2,"2","ferrari","ferrari",356,1
+1145,2025,20,3,3,"3","mercedes","mercedes",355,-1
+1145,2025,20,4,4,"4","red-bull","honda-rbpt",346,0
+1145,2025,20,5,5,"5","williams","mercedes",111,0
+1145,2025,20,6,6,"6","racing-bulls","honda-rbpt",72,0
+1145,2025,20,7,7,"7","aston-martin","mercedes",69,0
+1145,2025,20,8,8,"8","haas","ferrari",62,1
+1145,2025,20,9,9,"9","kick-sauber","ferrari",60,-1
+1145,2025,20,10,10,"10","alpine","renault",20,0
