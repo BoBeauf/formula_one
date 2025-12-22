@@ -14,7 +14,7 @@
 "buenos-aires","Juan y Oscar Gálvez","Autódromo Juan y Oscar Gálvez","Autódromo 17 de Octubre;Autódromo Municipal Ciudad de Buenos Aires;Autódromo Municipal del Parque Almirante Brown de la Ciudad de Buenos Aires;Autódromo Oscar Alfredo Gálvez","RACE","CLOCKWISE","Buenos Aires","argentina",-34.694272,-58.459347,4.259,19,20
 "bugatti","Bugatti","Bugatti Circuit",,"RACE","CLOCKWISE","Le Mans","france",47.937694,0.225611,4.185,14,1
 "caesars-palace","Caesars Palace","Caesars Palace",,"STREET","ANTI_CLOCKWISE","Las Vegas","united-states-of-america",36.116944,-115.175,3.650,14,2
-"catalunya","Catalunya","Circuit de Barcelona-Catalunya",,"RACE","CLOCKWISE","Montmeló","spain",41.57,2.261111,4.657,14,35
+"catalunya","Catalunya","Circuit de Barcelona-Catalunya","Circuit de Catalunya","RACE","CLOCKWISE","Montmeló","spain",41.57,2.261111,4.657,14,35
 "clermont-ferrand","Charade","Charade Circuit",,"ROAD","CLOCKWISE","Clermont-Ferrand","france",45.747222,3.038889,8.055,48,4
 "dallas","Fair Park","Fair Park",,"STREET","ANTI_CLOCKWISE","Dallas","united-states-of-america",32.781944,-96.765556,3.901,23,1
 "detroit","Detroit","Detroit Street Circuit",,"STREET","ANTI_CLOCKWISE","Detroit","united-states-of-america",42.32975,-83.040111,4.023,22,7
@@ -37,8 +37,9 @@
 "las-vegas","Las Vegas","Las Vegas Street Circuit",,"STREET","ANTI_CLOCKWISE","Las Vegas","united-states-of-america",36.175,-115.136389,6.201,17,3
 "long-beach","Long Beach","Long Beach",,"STREET","CLOCKWISE","Long Beach","united-states-of-america",33.766389,-118.192778,3.275,18,8
 "lusail","Lusail","Lusail International Circuit",,"RACE","CLOCKWISE","Lusail","qatar",25.49,51.454167,5.419,16,4
+"madring","Madring","Circuito de Madring",,"STREET","CLOCKWISE","Madrid","spain",40.465278,-3.615278,5.474,22,0
 "magny-cours","Magny-Cours","Circuit de Nevers Magny-Cours",,"RACE","CLOCKWISE","Nevers","france",46.863242,3.164228,4.411,17,18
-"marina-bay","Marina Bay","Marina Bay Street Circuit",,"STREET","ANTI_CLOCKWISE","Singapore","singapore",1.291531,103.86385,4.940,19,16
+"marina-bay","Marina Bay","Marina Bay Street Circuit",,"STREET","ANTI_CLOCKWISE","Singapore","singapore",1.291531,103.86385,4.927,19,16
 "melbourne","Melbourne","Melbourne Grand Prix Circuit","Albert Park Circuit","STREET","CLOCKWISE","Melbourne","australia",-37.849722,144.968333,5.278,14,28
 "mexico-city","Hermanos Rodríguez","Autódromo Hermanos Rodríguez","Autódromo Ricardo Rodríguez","RACE","CLOCKWISE","Mexico City","mexico",19.404197,-99.088747,4.304,17,25
 "miami","Miami","Miami International Autodrome",,"STREET","ANTI_CLOCKWISE","Miami Gardens","united-states-of-america",25.958056,-80.238889,5.412,19,4
