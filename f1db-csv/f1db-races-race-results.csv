@@ -8857,20 +8857,20 @@
 360,1982,3,9,9,"9","18","raul-boesel","march","ford","pirelli",false,70,,,,,"+5 laps",,5,,,,,false,23,"23",23,"23",14,,false,,false
 360,1982,3,10,10,"10","4","slim-borgudd","tyrrell","ford","goodyear",false,68,,,,,"+7 laps",,7,,,,,false,24,"24",24,"24",14,,false,,false
 360,1982,3,11,,"DNF","25","eddie-cheever","ligier","matra","michelin",false,59,,,,,,,,,,"Gearbox",,false,13,"13",13,"13",,,false,,false
-360,1982,3,12,,"DNF","22","andrea-de-cesaris","alfa-romeo","alfa-romeo","michelin",false,33,,,,,,,,,,"Spun off",,true,1,"1",1,"1",,,false,,false
+360,1982,3,12,,"DNF","22","andrea-de-cesaris","alfa-romeo","alfa-romeo","michelin",false,33,,,,,,,,,,"Accident",,true,1,"1",1,"1",,,false,,false
 360,1982,3,13,,"DNF","29","brian-henton","arrows","ford","pirelli",false,32,,,,,,,,,,"Spun off",,false,20,"20",20,"20",,,false,,false
-360,1982,3,14,,"DNF","14","roberto-guerrero","ensign","ford","avon",false,27,,,,,,,,,,"Spun off",,false,19,"19",19,"19",,,false,,false
+360,1982,3,14,,"DNF","14","roberto-guerrero","ensign","ford","avon",false,27,,,,,,,,,,"Accident",,false,19,"19",19,"19",,,false,,false
 360,1982,3,15,,"DNF","26","jacques-laffite","ligier","matra","michelin",false,26,,,,,,,,,,"Spun off",,false,15,"15",15,"15",,,false,,false
 360,1982,3,16,,"DNF","31","jean-pierre-jarier","osella","ford","pirelli",false,26,,,,,,,,,,"Transmission",,false,10,"10",10,"10",,,false,,false
-360,1982,3,17,,"DNF","1","nelson-piquet","brabham","ford","goodyear",false,25,,,,,,,,,,"Spun off",,false,6,"6",6,"6",,,false,,false
+360,1982,3,17,,"DNF","1","nelson-piquet","brabham","ford","goodyear",false,25,,,,,,,,,,"Accident",,false,6,"6",6,"6",,,false,,false
 360,1982,3,18,,"DNF","33","derek-daly","theodore","ford","avon",false,23,,,,,,,,,,"Spun off",,false,22,"22",22,"22",,,false,,false
-360,1982,3,19,,"DNF","5","mario-andretti","williams","ford","goodyear",false,19,,,,,,,,,,"Collision",,false,14,"14",14,"14",,,false,,false
-360,1982,3,20,,"DNF","15","alain-prost","renault","renault","michelin",false,10,,,,,,,,,,"Spun off",,false,4,"4",4,"4",,,false,,false
-360,1982,3,21,,"DNF","28","didier-pironi","ferrari","ferrari","goodyear",false,6,,,,,,,,,,"Spun off",,false,9,"9",9,"9",,,false,,false
+360,1982,3,19,,"DNF","5","mario-andretti","williams","ford","goodyear",false,19,,,,,,,,,,"Suspension",,false,14,"14",14,"14",,,false,,false
+360,1982,3,20,,"DNF","15","alain-prost","renault","renault","michelin",false,10,,,,,,,,,,"Suspension",,false,4,"4",4,"4",,,false,,false
+360,1982,3,21,,"DNF","28","didier-pironi","ferrari","ferrari","goodyear",false,6,,,,,,,,,,"Accident",,false,9,"9",9,"9",,,false,,false
 360,1982,3,22,,"DNF","16","rene-arnoux","renault","renault","michelin",false,5,,,,,,,,,,"Collision",,false,3,"3",3,"3",,,false,,false
 360,1982,3,23,,"DNF","23","bruno-giacomelli","alfa-romeo","alfa-romeo","michelin",false,5,,,,,,,,,,"Collision",,false,5,"5",5,"5",,,false,,false
-360,1982,3,24,,"DNF","10","eliseo-salazar","ats-wheels","ford","avon",false,3,,,,,,,,,,"Collision",,false,26,"26",26,"26",,,false,,false
-360,1982,3,25,,"DNF","9","manfred-winkelhock","ats-wheels","ford","avon",false,1,,,,,,,,,,"Collision",,false,25,"25",25,"25",,,false,,false
+360,1982,3,24,,"DNF","10","eliseo-salazar","ats-wheels","ford","avon",false,3,,,,,,,,,,"Accident",,false,26,"26",26,"26",,,false,,false
+360,1982,3,25,,"DNF","9","manfred-winkelhock","ats-wheels","ford","avon",false,1,,,,,,,,,,"Accident",,false,25,"25",25,"25",,,false,,false
 360,1982,3,26,,"DSQ","27","gilles-villeneuve","ferrari","ferrari","goodyear",false,75,,,,,,,,,,"Illegal rear wing",,false,7,"7",7,"7",,,false,,false
 360,1982,3,27,,"DNQ","36","teo-fabi","toleman","hart","pirelli",false,,,,,,,,,,,,,false,27,"27",,,,,false,,false
 360,1982,3,28,,"DNQ","32","riccardo-paletti","osella","ford","pirelli",false,,,,,,,,,,,,,false,28,"28",,,,,false,,false
