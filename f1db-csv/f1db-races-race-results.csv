@@ -27327,8 +27327,8 @@
 1151,2026,2,13,13,"13","77","valtteri-bottas","cadillac","ferrari","pirelli",false,55,,,,,"+1 lap",,1,,,,,false,20,"20",19,"19",6,1,false,false,false
 1151,2026,2,14,14,"14","31","esteban-ocon","haas","ferrari","pirelli",false,55,,,,,"+1 lap",,1,,,,,false,13,"13",13,"13",-1,2,false,false,false
 1151,2026,2,15,15,"15","11","sergio-perez","cadillac","ferrari","pirelli",false,55,,,,,"+1 lap",,1,,,,,false,22,"22",21,"21",6,1,false,false,false
-1151,2026,2,16,,"DNF","3","max-verstappen","red-bull","red-bull-ford","pirelli",false,45,,,,,,,,,,"Gearbox",,false,8,"8",8,"8",,1,false,false,false
-1151,2026,2,17,,"DNF","14","fernando-alonso","aston-martin","honda","pirelli",false,32,,,,,,,,,,"Physical",,false,19,"19",18,"18",,1,false,false,false
+1151,2026,2,16,,"DNF","3","max-verstappen","red-bull","red-bull-ford","pirelli",false,45,,,,,,,,,,"Coolant leak",,false,8,"8",8,"8",,1,false,false,false
+1151,2026,2,17,,"DNF","14","fernando-alonso","aston-martin","honda","pirelli",false,32,,,,,,,,,,"Vibrations",,false,19,"19",18,"18",,1,false,false,false
 1151,2026,2,18,,"DNF","18","lance-stroll","aston-martin","honda","pirelli",false,9,,,,,,,,,,"Battery",,false,21,"21",20,"20",,0,false,false,false
 1151,2026,2,19,,"DNS","81","oscar-piastri","mclaren","mercedes","pirelli",false,,,,,,,,,,,"Electrical",,false,5,"5",5,"5",,0,false,false,false
 1151,2026,2,20,,"DNS","1","lando-norris","mclaren","mercedes","pirelli",false,,,,,,,,,,,"Electrical",,false,6,"6",6,"6",,0,false,false,false
