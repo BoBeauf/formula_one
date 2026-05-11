@@ -219,7 +219,7 @@
 "dieter-quester","Dieter Quester","Dieter","Quester","Dieter Quester","QUE",,"MALE","1939-05-30",,"Vienna","austria","austria",,,25,9,,0,2,1,0,51,0,0,0,0,0,0,0,0,0
 "dino-beganovic","Dino Beganovic","Dino","Beganovic","Dino Beganovic","BEG",,"MALE","2004-01-19",,"Linköping","sweden","sweden","bosnia-and-herzegovina",,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 "divina-galica","Divina Galica","Divina","Galica","Divina Mary Galica","GAL",,"FEMALE","1944-08-13",,"Bushey Heath","united-kingdom","united-kingdom",,,,,,0,3,0,0,0,0,0,0,0,0,0,0,0,0
-"domenico-schiattarella","Domenico Schiattarella","Domenico","Schiattarella","Domenico Schiattarella","SCH",,"MALE","1967-11-17",,"Milan","italy","italy",,,20,9,,0,7,6,0,261,0,0,0,0,0,0,0,0,0
+"domenico-schiattarella","Domenico Schiattarella","Domenico","Schiattarella","Domenico Luca Schiattarella","SCH",,"MALE","1967-11-17",,"Milan","italy","italy",,,20,9,,0,7,6,0,261,0,0,0,0,0,0,0,0,0
 "don-beauman","Don Beauman","Don","Beauman","Donald Bentley Beauman","BEA",,"MALE","1928-07-26","1955-07-09","Farnborough","united-kingdom","united-kingdom",,,17,11,,0,1,1,0,84,0,0,0,0,0,0,0,0,0
 "don-branson","Don Branson","Don","Branson","Donald L. Branson","BRA",,"MALE","1920-06-02","1966-11-12","Rantoul","united-states-of-america","united-states-of-america",,19,8,4,,0,2,2,0,312,0,3,3,0,0,0,0,0,0
 "don-edmunds","Don Edmunds","Don","Edmunds","Don Edmunds","EDM",,"MALE","1930-09-23","2020-08-11","Santa Ana","united-states-of-america","united-states-of-america",,,27,19,,0,1,1,0,170,0,0,0,0,0,0,0,0,0
@@ -284,7 +284,7 @@
 "fernando-alonso","Fernando Alonso","Fernando","Alonso","Fernando Alonso Díaz","ALO","14","MALE","1981-07-29",,"Oviedo","spain","spain",,1,1,1,5,2,432,430,32,23245,106,2393,2393,22,26,25,0,7,1
 "franck-lagorce","Franck Lagorce","Franck","Lagorce","Franck Lagorce","LAG",,"MALE","1968-09-01",,"L'Haÿ-les-Roses","france","france",,,20,11,,0,2,2,0,89,0,0,0,0,0,0,0,0,0
 "franck-montagny","Franck Montagny","Franck","Montagny","Franck Montagny","MON",,"MALE","1978-01-05",,"Feurs","france","france",,27,19,16,,0,7,7,0,240,0,0,0,0,0,0,0,0,0
-"franco-colapinto","Franco Colapinto","Franco","Colapinto","Franco Alejandro Colapinto","COL","43","MALE","2003-05-27",,"Pilar","argentina","argentina",,19,8,8,10,0,31,30,0,1667,0,12,12,0,0,9,0,0,0
+"franco-colapinto","Franco Colapinto","Franco","Colapinto","Franco Alejandro Colapinto","COL","43","MALE","2003-05-27",,"Pilar","argentina","argentina",,19,8,7,10,0,31,30,0,1667,0,12,12,0,0,9,0,0,0
 "franco-comotti","Franco Comotti","Franco","Comotti","Gianfranco Comotti","COM",,"MALE","1906-07-24","1963-05-10","Brescia","italy","italy",,,16,12,,0,2,2,0,78,0,0,0,0,0,0,0,0,0
 "franco-forini","Franco Forini","Franco","Forini","Franco Forini","FOR",,"MALE","1958-09-22",,"Muralto","switzerland","switzerland",,,26,,,0,3,2,0,59,0,0,0,0,0,0,0,0,0
 "franco-rol","Franco Rol","Franco","Rol","Franco Rol","ROL",,"MALE","1908-06-05","1977-06-18","Turin","italy","italy",,,7,9,,0,5,5,0,137,0,0,0,0,0,0,0,0,0
@@ -886,7 +886,7 @@
 "valtteri-bottas","Valtteri Bottas","Valtteri","Bottas","Valtteri Bottas","BOT","77","MALE","1989-08-28",,"Nastola","finland","finland",,2,1,1,1,0,251,250,10,14036,67,1797,1797,20,19,20,2,5,0
 "vern-schuppan","Vern Schuppan","Vern","Schuppan","Vernon Schuppan","SCH",,"MALE","1943-03-19",,"Booleroo Centre","australia","australia",,,14,7,,0,13,9,0,447,0,0,0,0,0,0,0,0,0
 "vic-elford","Vic Elford","Vic","Elford","Victor Henry Elford","ELF",,"MALE","1935-06-10","2022-03-13","London","united-kingdom","united-kingdom",,14,5,4,,0,13,13,0,594,0,8,8,0,0,0,0,0,0
-"vic-wilson","Vic Wilson","Vic","Wilson","Vic Wilson","WIL",,"MALE","1931-04-14","2001-01-14","Drypool","united-kingdom","united-kingdom",,,16,,,0,2,1,0,23,0,0,0,0,0,0,0,0,0
+"vic-wilson","Vic Wilson","Vic","Wilson","Victor Arthur Wilson","WIL",,"MALE","1931-04-14","2001-01-14","Drypool","united-kingdom","united-kingdom",,,16,,,0,2,1,0,23,0,0,0,0,0,0,0,0,0
 "victor-martins","Victor Martins","Victor","Martins","Victor Martins","MAR",,"MALE","2001-06-16",,"Quincy-sous-Sénart","france","france",,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 "vincenzo-sospiri","Vincenzo Sospiri","Vincenzo","Sospiri","Vincenzo Sospiri","SOS",,"MALE","1966-10-09",,"Forlì","italy","italy",,,,,,0,1,0,0,0,0,0,0,0,0,0,0,0,0
 "vitaly-petrov","Vitaly Petrov","Vitaly","Petrov","Vitaly Aleksandrovich Petrov","PET",,"MALE","1984-09-08",,"Vyborg","russia","russia",,10,6,3,,0,58,57,0,2992,1,64,64,0,1,0,0,0,0
