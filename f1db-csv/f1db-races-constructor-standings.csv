@@ -10543,3 +10543,14 @@
 1154,2026,5,9,9,"9","audi","audi",2,0,false
 1154,2026,5,10,10,"10","cadillac","ferrari",0,0,false
 1154,2026,5,11,11,"11","aston-martin","honda",0,0,false
+1155,2026,6,1,1,"1","mercedes","mercedes",244,0,false
+1155,2026,6,2,2,"2","ferrari","ferrari",165,0,false
+1155,2026,6,3,3,"3","mclaren","mercedes",118,0,false
+1155,2026,6,4,4,"4","red-bull","red-bull-ford",72,0,false
+1155,2026,6,5,5,"5","alpine","mercedes",41,0,false
+1155,2026,6,6,6,"6","racing-bulls","red-bull-ford",39,0,false
+1155,2026,6,7,7,"7","haas","ferrari",21,0,false
+1155,2026,6,8,8,"8","williams","mercedes",11,0,false
+1155,2026,6,9,9,"9","audi","audi",2,0,false
+1155,2026,6,10,10,"10","aston-martin","honda",1,1,false
+1155,2026,6,11,11,"11","cadillac","ferrari",0,-1,false
