@@ -25,12 +25,12 @@
 "fuji","Fuji","Fuji Speedway",,"RACE","CLOCKWISE","Oyama","japan",35.371667,138.926667,4.563,16,4
 "hockenheimring","Hockenheimring","Hockenheimring",,"RACE","CLOCKWISE","Hockenheim","germany",49.327778,8.565833,4.574,17,37
 "hungaroring","Hungaroring","Hungaroring",,"RACE","CLOCKWISE","Budapest","hungary",47.582222,19.251111,4.381,14,41
-"imola","Enzo e Dino Ferrari","Autodromo Internazionale Enzo e Dino Ferrari","Autodromo Dino Ferrari","RACE","ANTI_CLOCKWISE","Imola","italy",44.341111,11.713333,4.909,19,32
+"imola","Enzo e Dino Ferrari","Autodromo Internazionale Enzo e Dino Ferrari","Autodromo di Imola;Autodromo Dino Ferrari","RACE","ANTI_CLOCKWISE","Imola","italy",44.341111,11.713333,4.909,19,32
 "indianapolis","Indianapolis","Indianapolis Motor Speedway",,"RACE","CLOCKWISE","Indianapolis","united-states-of-america",39.798333,-86.232778,4.192,13,19
-"interlagos","José Carlos Pace","Autódromo José Carlos Pace","Interlagos","RACE","ANTI_CLOCKWISE","São Paulo","brazil",-23.701111,-46.697222,4.309,15,42
-"istanbul","Istanbul Park","Istanbul Park","Istanbul Otodrom","RACE","ANTI_CLOCKWISE","Istanbul","turkey",40.951667,29.405,5.338,14,9
-"jacarepagua","Nelson Piquet","Autódromo Internacional Nelson Piquet","Jacarepaguá","RACE","ANTI_CLOCKWISE","Rio de Janeiro","brazil",-22.975556,-43.395,5.031,11,10
-"jarama","Jarama","Circuito del Jarama","Circuito Permanente del Jarama","RACE","CLOCKWISE","Madrid","spain",40.617111,-3.585583,3.314,14,9
+"interlagos","José Carlos Pace","Autódromo José Carlos Pace","Autódromo de Interlagos","RACE","ANTI_CLOCKWISE","São Paulo","brazil",-23.701111,-46.697222,4.309,15,42
+"istanbul","İstanbul Park","TOSFED İstanbul Park","İstanbul Park","RACE","ANTI_CLOCKWISE","Istanbul","turkey",40.951667,29.405,5.338,14,9
+"jacarepagua","Nelson Piquet","Autódromo Internacional Nelson Piquet","Autódromo de Jacarepaguá","RACE","ANTI_CLOCKWISE","Rio de Janeiro","brazil",-22.975556,-43.395,5.031,11,10
+"jarama","Jarama","Circuito de Madrid Jarama - RACE","Circuito Permanente del Jarama;Circuito del Jarama","RACE","CLOCKWISE","Madrid","spain",40.617111,-3.585583,3.314,14,9
 "jeddah","Jeddah","Jeddah Corniche Circuit",,"STREET","ANTI_CLOCKWISE","Jeddah","saudi-arabia",21.543333,39.172778,6.174,27,5
 "jerez","Jerez","Circuito de Jerez","Circuito Permanente de Jerez","RACE","CLOCKWISE","Jerez de la Frontera","spain",36.708333,-6.034167,4.428,15,7
 "kyalami","Kyalami","Kyalami Racing Circuit",,"RACE","ANTI_CLOCKWISE","Midrand","south-africa",-25.998611,28.068889,4.261,13,20
@@ -40,8 +40,8 @@
 "madring","Madring","Circuito de Madring",,"STREET","CLOCKWISE","Madrid","spain",40.465278,-3.615278,5.416,22,1
 "magny-cours","Magny-Cours","Circuit de Nevers Magny-Cours",,"RACE","CLOCKWISE","Nevers","france",46.863242,3.164228,4.411,17,18
 "marina-bay","Marina Bay","Marina Bay Street Circuit",,"STREET","ANTI_CLOCKWISE","Singapore","singapore",1.291531,103.86385,4.927,19,16
-"melbourne","Melbourne","Melbourne Grand Prix Circuit","Albert Park Circuit","STREET","CLOCKWISE","Melbourne","australia",-37.849722,144.968333,5.278,14,29
-"mexico-city","Hermanos Rodríguez","Autódromo Hermanos Rodríguez","Autódromo Ricardo Rodríguez","RACE","CLOCKWISE","Mexico City","mexico",19.404197,-99.088747,4.304,17,25
+"melbourne","Albert Park","Albert Park Circuit",,"STREET","CLOCKWISE","Melbourne","australia",-37.849722,144.968333,5.278,14,29
+"mexico-city","Hermanos Rodríguez","Autódromo Hermanos Rodríguez","Autódromo Magdalena Mixhuca","RACE","CLOCKWISE","Mexico City","mexico",19.404197,-99.088747,4.304,17,25
 "miami","Miami","Miami International Autodrome",,"STREET","ANTI_CLOCKWISE","Miami Gardens","united-states-of-america",25.958056,-80.238889,5.412,19,5
 "monaco","Monaco","Circuit de Monaco",,"STREET","CLOCKWISE","Monte Carlo","monaco",43.734722,7.420556,3.337,19,72
 "monsanto","Monsanto","Circuito de Monsanto",,"STREET","CLOCKWISE","Lisbon","portugal",38.719722,-9.203056,5.440,9,1
@@ -63,10 +63,10 @@
 "riverside","Riverside","Riverside International Raceway",,"RACE","CLOCKWISE","Riverside","united-states-of-america",33.937,-117.272556,5.271,9,1
 "rouen","Rouen-Les-Essarts","Rouen-Les-Essarts",,"ROAD","CLOCKWISE","Rouen","france",49.330639,1.004583,6.542,12,5
 "sebring","Sebring","Sebring International Raceway",,"ROAD","CLOCKWISE","Sebring","united-states-of-america",27.454741,-81.348267,8.360,17,1
-"sepang","Sepang","Sepang International Circuit",,"RACE","CLOCKWISE","Sepang","malaysia",2.760556,101.7375,5.543,15,19
+"sepang","Sepang","Sepang International Circuit",,"RACE","CLOCKWISE","Sepang","malaysia",2.760556,101.7375,5.543,15,20
 "shanghai","Shanghai","Shanghai International Circuit",,"RACE","CLOCKWISE","Shanghai","china",31.338889,121.219722,5.451,16,19
 "silverstone","Silverstone","Silverstone Circuit",,"RACE","CLOCKWISE","Silverstone","united-kingdom",52.078611,-1.016944,5.891,18,61
-"sochi","Sochi","Sochi Autodrom","Sochi International Street Circuit;Sochi Olympic Park Circuit","ROAD","CLOCKWISE","Sochi","russia",43.410278,39.968271,5.848,18,8
+"sirius","Sirius","Sirius Autodrom","Sochi International Street Circuit;Sochi Olympic Park Circuit;Sochi Autodrom","ROAD","CLOCKWISE","Sirius","russia",43.410278,39.968271,5.848,18,8
 "spa-francorchamps","Spa-Francorchamps","Circuit de Spa-Francorchamps",,"RACE","CLOCKWISE","Spa","belgium",50.437222,5.971389,7.004,19,59
 "spielberg","Red Bull Ring","Red Bull Ring","Österreichring;A1-Ring","RACE","CLOCKWISE","Spielberg","austria",47.219722,14.764722,4.326,10,40
 "suzuka","Suzuka","Suzuka Circuit",,"RACE","CLOCKWISE","Suzuka","japan",34.843056,136.540556,5.807,18,36
@@ -74,6 +74,6 @@
 "watkins-glen","Watkins Glen","Watkins Glen International",,"RACE","CLOCKWISE","Watkins Glen","united-states-of-america",42.336944,-76.927222,5.435,11,20
 "yas-marina","Yas Marina","Yas Marina Circuit",,"RACE","ANTI_CLOCKWISE","Abu Dhabi","united-arab-emirates",24.467222,54.603056,5.281,16,17
 "yeongam","Korea","Korea International Circuit",,"RACE","ANTI_CLOCKWISE","Yeongam","south-korea",34.733333,126.416667,5.615,18,4
-"zandvoort","Zandvoort","Circuit Park Zandvoort",,"RACE","CLOCKWISE","Zandvoort","netherlands",52.388819,4.540922,4.259,14,36
+"zandvoort","Zandvoort","Circuit Zandvoort","Circuit Park Zandvoort","RACE","CLOCKWISE","Zandvoort","netherlands",52.388819,4.540922,4.259,14,36
 "zeltweg","Zeltweg","Zeltweg",,"ROAD","CLOCKWISE","Zeltweg","austria",47.202222,14.742222,3.186,4,1
 "zolder","Zolder","Circuit Zolder",,"RACE","CLOCKWISE","Heusden-Zolder","belgium",50.988889,5.255556,4.262,15,10
